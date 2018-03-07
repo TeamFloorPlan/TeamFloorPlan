@@ -99,7 +99,7 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
         }
         
         // query
-        $result = $conn->prepare("SELECT * FROM logindetails WHERE username= :username AND password= :password AND verified='true'");
+        $result = $conn->prepare("SELECT * FROM logindetails WHERE username= :username AND password= :password");
         $result->bindParam(':username', $user);
         $result->bindParam(':password', $password);
         $result->execute();
@@ -108,7 +108,7 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
             
             $_SESSION['user'] = $user;	//Start user session login successful
             session_write_close();
-            header("Placeholder");
+            header("Location: Placeholder.html");
         } else {
             $errmsg_arr[] = 'Username and Password are not found';
             $errflag      = true;
