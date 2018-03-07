@@ -45,3 +45,13 @@ nav a:hover{
 body {
   background: linear-gradient(to right, #009fe3 0%,#009fe3 50%, 50%, #621361 50%, #621361 100%);
 }
+
+section {
+  position: absolute;
+  height: auto;
+  top: 15%;
+  left: 12.5%;
+  width: 75%;
+  bottom: 0;
+  background-color: white;
+}
