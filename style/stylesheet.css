@@ -4,8 +4,9 @@ header{
   width: 100%;
   left: 0;
   top: 0;
-  background-color: #1FA1F5;
+  background-color: #e9e9e9;
   position: fixed;
+  z-index: 2;
 }
 
 #logo{
@@ -41,109 +42,6 @@ nav a:hover{
   color: #2EE3FF;
 }
 
-/* End Nav Section, Start article section */
-
-body{
-  font-family: "Arial", Helvetica, sans-serif;
-  background-color: #033342;
-  margin-top: 8em;
-  font-size: 100%;
+body {
+  background: linear-gradient(to right, #009fe3 0%,#009fe3 50%, 50%, #621361 50%, #621361 100%);
 }
-
-article{
-  margin-top: 2em;
-  background-color: #F3FEFF;
-  border-radius: 1em;
-  border: 0.5em solid #1E63AD;
-  padding-left: 1em;
-  padding-right: 1em;
-  margin: 0 auto;
-  margin-bottom: 3em;
-  max-width: 70em;
-  padding-bottom: 2em;
-}
-/* Discovery log specific styling*/
-textarea{
-  resize: none;
-  max-width: 90%
-}
-
-#corner_images{
-  width: 30%;
-}
-
-.html-code{
-  font-family: "courier new", sans-serif;
-  border: 0.1em solid black;
-  background-color: #FFFFFF;
-  max-width: 80%
-}
-
-/* Video section */
-
-video{
-  width: 90%
-}
-/* End Article section, Start footer section */
-
-footer{
-  margin-top: 2.5em;
-  background-color: #1E73AC;
-  position: fixed;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  padding: 0.5em;
-  padding-left: 10%;
-}
-
-footer a{
-  color: #F3FEFF;
-}
-
-/* End Footer section, start @media section */
-
-@media only screen and (max-width: 790px){
-
-  body{
-    font-family: sans-serif;
-    text-align: center;
-  }
-  /* Header */
-  h1{
-    margin-left: 0;
-  }
-
-  header{
-    text-align: center;
-    background-color: #1FA1F5;
-    padding: 0;
-    position: fixed;
-  }
-
-  #logo{
-    display: none
-  }
-
-  nav{
-    padding-left: 0;
-  }
-
-  /* End Header, Start article*/
-
-  textarea{
-    max-width: 80%;
-  }
-
-  article{
-    margin-top: 10em;
-    margin-left: 0;
-    margin-right: 0;
-    border-radius: 0;
-  }
-
-  footer{
-    padding: 0;
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
-  }
