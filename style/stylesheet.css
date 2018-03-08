@@ -59,7 +59,7 @@ section {
 #mapDiv {
   width: 500px;
   height: 350px;
-  background-color: lightgrey;
+  background-color: white;
   position: absolute;
   top:0;
   bottom: 0;
@@ -67,3 +67,7 @@ section {
   right: 0;
   margin: auto;
 }
+
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
+  }

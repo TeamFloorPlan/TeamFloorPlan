@@ -19,7 +19,16 @@
   <body>
 
     <section>
-      <p>PUT CONTENT HERE</p>
+      <form>
+        <br>
+        <br>
+        <input type="text" name="buildingVal" id="buildingVal">
+        <input type="number" name="floor" id="floor" value="0" min="0" max="2" />
+        <input id="clickMe" type="button" value="Show Map" onclick="displayMap(window.mapCanvas);" />
+      </form>
+      <div id="mapDiv">
+        <canvas id="mapCanvas" width="500" height="350"></canvas>
+      <div>
     </section>
 
   </body>
