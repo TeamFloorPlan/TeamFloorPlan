@@ -71,5 +71,16 @@ section {
 }
 
 input[type=number]::-webkit-inner-spin-button {
-    opacity: 1
-  }
+  opacity: 1
+}
+
+input[type=checkbox] {
+  transform: scale(2);
+}
+
+#settingsMenu {
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 2em;
+  line-height: 5em;
+}
