@@ -54,7 +54,7 @@ section {
   width: 75%;
   bottom: 0;
   background-color: white;
-  line-height: 1.6;
+  padding-top: 30px;
 }
 
 #mapDiv {
