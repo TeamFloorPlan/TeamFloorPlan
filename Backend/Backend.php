@@ -4,7 +4,7 @@ $errmsg_arr = array();
 $errflag    = false;
 // configuration
 $dbhost     = "localhost";      //Address of the database
-$dbname     = "inse";            //Name for the database
+$dbname     = "floorplan";            //Name for the database
 $dbuser     = "root";           //Name of the MySQL user
 $dbpass     = "";               //Password of the MySQL user
 
@@ -99,7 +99,7 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
         }
         
         // query
-        $result = $conn->prepare("SELECT * FROM logindetails WHERE username= :username AND password= :password AND verified='true'");
+        $result = $conn->prepare("SELECT * FROM logindetails WHERE username= :username AND password= :password");
         $result->bindParam(':username', $user);
         $result->bindParam(':password', $password);
         $result->execute();
@@ -121,7 +121,50 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
             exit();
         }
     
+}else if(isset($_GET['roomStuff']) && isset($_GET['buildingID']))
+{
+    $results = array();
+    $building = $_GET['buildingID'];
+    $result = $conn->prepare("SELECT * from rooms WHERE buildingID= :building");
+    $result->bindParam(':building', $building);
+    $result->execute();
+    $rooms = $result->fetchAll();
+    
+    foreach($rooms as $row) 
+    {
+        array_push($results, $row['roomID']);
+    }
+    echo implode(" ",$results);
+}else if(isset($_POST['nodeBool']))
+{
+    $nodeID = $_POST['nodeID'];
+    $floorID = $_POST['floorID'];
+    $nodeYAxis = $_POST['nodeYAxis'];
+    $nodeXAxis = $_POST['nodeXAxis'];
+
+    $result = $conn->prepare("INSERT INTO nodes (nodeID, floorID, nodeYAxis, nodeXAxis) VALUES (:nodeID, :floorID, :nodeYAxis, :nodeXAxis)");
+    $result->bindParam(':nodeID', $nodeID);
+    $result->bindParam(':floorID', $floorID);
+    $result->bindParam(':nodeYAxis', $nodeYAxis);
+    $result->bindParam(':nodeXAxis', $nodeXAxis);
+    $result->execute();
+}else if(isset($_POST['roomBool']))
+{
+    $roomID = $_POST['roomID'];
+    $floorID = $_POST['floorID'];
+    $roomYAxis = $_POST['roomYAxis'];
+    $roomXAxis = $_POST['roomXAxis'];
+    $roomSize = $_POST['roomSize'];
+
+    $result = $conn->prepare("INSERT INTO room (roomID, floorID, roomYAxis, roomXAxis, roomSize) VALUES (:roomID, :floorID, :roomYAxis, :roomXAxis, :roomSize)");
+    $result->bindParam(':roomID',$roomID);
+    $result->bindParam(':floorID', $floorID);
+    $result->bindParam(':roomYAxis', $roomYAxis);
+    $result->bindParam(':roomXAxis', $roomXAxis);
+    $result->bindParam(':roomSize',$roomSize);
+    $result->execute();
 }
+
 
 ?>
 
