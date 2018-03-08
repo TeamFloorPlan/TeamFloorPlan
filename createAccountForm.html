@@ -20,16 +20,34 @@
   <body>
     <section>
     <form action="/backend/backend.php">
-    First name:<br>
-    <input type="text" name="Username"><br>
-    Last name:<br>
-    <input type="text" name="E-mail"><br>
-    Password:<br>
-    <input type="text" name="password"><br>
-    Confirm Password:<br>
-    <input type="text" name="cpassword">
-    </form>
-    <p>this is the create form page</p>
-  </section>
-  </body>
-</html>
+      <br>
+       <fieldset id="fieldsetid">
+         <legend id="legendid">Personal information:</legend>
+         <p class="FormTitle">Name:</p>
+         <input type="text" name="FirstName" placeholder="Your First Name" size="45"  class="Name">
+
+
+         <!-- <p class="FormTitle">Surname:</p> -->
+         <input type="text" name="Surname" placeholder="Your Last Name" size="45" class="Name">
+      </fieldset>
+
+         <p class="FormTitle">Username:</p>
+         <input type="text" name ="Username" placeholder="Unique Username" size="40" class="EmailPass">
+
+         <p class="FormTitle">Email Address:</p>
+         <input type="text" name="E-mail" placeholder="Your Email" size="60" class="EmailPass">
+
+         <p class="FormTitle">Password:</p>
+         <input type="text" name="password" placeholder="Password" size="40" class="EmailPass">
+
+
+
+         <p class="FormTitle">Confirm Password:</p>
+         <input type="text" name="cpassword" placeholder="Password" size="40" class="EmailPass">
+         <br>
+         <input type="submit" value="Submit" id="submitbut">
+       </form>
+         <p>this is the create form page</p>
+       </section>
+       </body>
+     </html>
