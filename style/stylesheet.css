@@ -49,12 +49,13 @@ body {
 section {
   position: absolute;
   height: auto;
-  top: 15%;
-  left: 12.5%;
+  top: 12%;
+  left: 10%;
   width: 75%;
   bottom: 0;
   background-color: white;
-  padding-top: 30px;
+  padding-top: 3em;
+  padding-left: 3em;
 }
 
 #mapDiv {
