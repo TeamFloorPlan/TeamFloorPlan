@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 07, 2018 at 11:36 PM
+-- Generation Time: Mar 08, 2018 at 01:11 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `building` (
   KEY `IndexbuildingName` (`buildingName`) USING BTREE,
   KEY `IndexbuildingNumberOfEntrances` (`buildingNumberOfEntrances`) USING BTREE,
   KEY `IndexbuildingNumberOfFloors` (`buildingNumberOfFloors`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=23464 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23463 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `building`
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `elevator` (
   KEY `IndexelevatorCapacity` (`elevatorCapacity`) USING BTREE,
   KEY `IndexelevatorXAxis` (`elevatorXAxis`) USING BTREE,
   KEY `IndexelevatorYAxis` (`elevatorYAxis`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `elevator`
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `entrances` (
   KEY `IndexentranceDisabledAccess` (`entranceDisabledAccess`) USING BTREE,
   KEY `IndexentranceYAxis` (`entranceYAxis`) USING BTREE,
   KEY `IndexentranceXAxis` (`entranceXAxis`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `entrances`
@@ -181,7 +181,34 @@ CREATE TABLE IF NOT EXISTS `nodes` (
   KEY `NodesFK01` (`floorID`),
   KEY `IndexnodeYAxis` (`nodeYAxis`),
   KEY `IndexnodeXAxis` (`nodeXAxis`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `nodes`
+--
+
+INSERT INTO `nodes` (`nodeID`, `floorID`, `nodeYAxis`, `nodeXAxis`) VALUES
+(1, 3, 5, 5),
+(3, 3, 6, 6),
+(4, 4, 7, 7),
+(6, 3, 5, 5),
+(7, 3, 5, 5),
+(8, 3, 7, 8),
+(9, 5, 12, 56),
+(10, 5, 16, 98),
+(11, 5, 78, 34),
+(12, 4, 15, 33),
+(13, 12, 16, 39),
+(14, 12, 16, 100),
+(15, 12, 67, 123),
+(16, 13, 88, 1),
+(17, 13, 99, 13),
+(18, 13, 2, 77),
+(19, 13, 21, 88),
+(20, 13, 1, 99),
+(21, 14, 5, 7),
+(22, 14, 8, 11),
+(23, 14, 81, 66);
 
 -- --------------------------------------------------------
 
@@ -201,7 +228,35 @@ CREATE TABLE IF NOT EXISTS `room` (
   KEY `IndexroomSize` (`roomSize`) USING BTREE,
   KEY `IndexroomXAxis` (`roomXAxis`) USING BTREE,
   KEY `IndexroomYAxis` (`roomYAxis`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `room`
+--
+
+INSERT INTO `room` (`roomID`, `floorID`, `roomYAxis`, `roomXAxis`, `roomSize`) VALUES
+(1, 3, 67, 76, 22),
+(2, 3, 1245, 76, 22),
+(3, 3, 3, 107, 22),
+(4, 3, 77, 55, 22),
+(5, 4, 12, 89, 6),
+(6, 4, 12, 72, 60),
+(7, 4, 12, 80, 67),
+(8, 4, 15, 90, 67),
+(9, 5, 28, 90, 67),
+(10, 5, 50, 32, 40),
+(11, 5, 50, 20, 40),
+(12, 5, 50, 15, 45),
+(13, 12, 34, 43, 15),
+(14, 12, 23, 51, 16),
+(15, 12, 78, 34, 37),
+(16, 12, 41, 19, 90),
+(17, 13, 56, 20, 13),
+(18, 13, 54, 27, 67),
+(19, 13, 23, 56, 74),
+(20, 14, 5, 516, 3468),
+(21, 14, 1, 1, 300),
+(22, 14, 27, 27, 754);
 
 -- --------------------------------------------------------
 
@@ -219,7 +274,7 @@ CREATE TABLE IF NOT EXISTS `stairs` (
   KEY `StairsFK01` (`floorID`) USING BTREE,
   KEY `IndexstairsYAxis` (`stairsYAxis`) USING BTREE,
   KEY `IndexstairsXAxis` (`stairsXAxis`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `stairs`
