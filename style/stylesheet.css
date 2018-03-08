@@ -12,8 +12,8 @@ header{
 #logo{
   position: fixed;
   margin-top: 0.5em;
-  margin-left: 0.5em;
-  width: 4em;
+  margin-left: 1em;
+  width: 9em;
 }
 
 h1{
@@ -41,6 +41,8 @@ nav a:hover{
 #current_page{
   color: #2EE3FF;
 }
+
+/* end nav section, start body styling */
 
 body {
   background: linear-gradient(to right, #009fe3 0%,#009fe3 50%, 50%, #621361 50%, #621361 100%);
