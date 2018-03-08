@@ -148,6 +148,8 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
     $result->bindParam(':nodeYAxis', $nodeYAxis);
     $result->bindParam(':nodeXAxis', $nodeXAxis);
     $result->execute();
+    header("post2.html");
+    
 }else if(isset($_POST['roomBool']))
 {
     $roomID = NULL;
@@ -163,6 +165,7 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
     $result->bindParam(':roomXAxis', $roomXAxis);
     $result->bindParam(':roomSize',$roomSize);
     $result->execute();
+    header("post2.html");
 }
 
 
