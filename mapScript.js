@@ -19,20 +19,23 @@ function getBuilding() {
     case "liongate":
       switch (document.getElementById('floor').value) {
         case "0":
-          var build="img/liongateLevel0.svg"
+          var build="img/Liongate/liongateLevel0.svg"
           break;
         case "1":
-          var build="img/liongateLevel1.svg"
+          var build="img/Liongate/liongateLevel1.svg"
+          break;
+        case "2";
+          var build="img/Liongate/liongateLevel2.svg"
           break;
       }
       break;
     case "portland":
       switch (document.getElementById('floor').value) {
         case "0":
-          var build="img/portlandLevel0.svg"
+          var build="img/Portland/portlandLevel0.svg"
           break;
         case "1":
-          var build="img/portlandLevel0.svg"
+          var build="img/Portland/portlandLevel0.svg"
           break;
         }
       break;
