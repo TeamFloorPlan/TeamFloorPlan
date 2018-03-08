@@ -137,7 +137,7 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
     echo implode(" ",$results);
 }else if(isset($_POST['nodeBool']))
 {
-    $nodeID = $_POST['nodeID'];
+    $nodeID = NULL;
     $floorID = $_POST['floorID'];
     $nodeYAxis = $_POST['nodeYAxis'];
     $nodeXAxis = $_POST['nodeXAxis'];
@@ -150,7 +150,7 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
     $result->execute();
 }else if(isset($_POST['roomBool']))
 {
-    $roomID = $_POST['roomID'];
+    $roomID = NULL;
     $floorID = $_POST['floorID'];
     $roomYAxis = $_POST['roomYAxis'];
     $roomXAxis = $_POST['roomXAxis'];
