@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 08, 2018 at 01:11 AM
+-- Generation Time: Mar 08, 2018 at 05:04 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -40,14 +40,6 @@ CREATE TABLE IF NOT EXISTS `building` (
   KEY `IndexbuildingNumberOfFloors` (`buildingNumberOfFloors`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=23463 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `building`
---
-
-INSERT INTO `building` (`builingID`, `buildingName`, `buildingNumberOfEntrances`, `buildingNumberOfFloors`) VALUES
-(23461, 'Liongate', 2, 3),
-(23462, 'Buckingham', 3, 3);
-
 -- --------------------------------------------------------
 
 --
@@ -57,55 +49,30 @@ INSERT INTO `building` (`builingID`, `buildingName`, `buildingNumberOfEntrances`
 DROP TABLE IF EXISTS `elevator`;
 CREATE TABLE IF NOT EXISTS `elevator` (
   `elevatorID` int(6) NOT NULL AUTO_INCREMENT,
-  `floorID` int(6) NOT NULL,
+  `nodeID` int(6) NOT NULL,
   `elevatorCapacity` int(6) NOT NULL,
-  `elevatorYAxis` int(6) NOT NULL,
-  `elevatorXAxis` int(6) NOT NULL,
   PRIMARY KEY (`elevatorID`),
-  KEY `ElevatorFK01` (`floorID`) USING BTREE,
   KEY `IndexelevatorCapacity` (`elevatorCapacity`) USING BTREE,
-  KEY `IndexelevatorXAxis` (`elevatorXAxis`) USING BTREE,
-  KEY `IndexelevatorYAxis` (`elevatorYAxis`) USING BTREE
+  KEY `ElevatorFK01` (`nodeID`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `elevator`
---
-
-INSERT INTO `elevator` (`elevatorID`, `floorID`, `elevatorCapacity`, `elevatorYAxis`, `elevatorXAxis`) VALUES
-(1, 3, 70, 56, 78),
-(2, 12, 30, 23, 12);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `entrances`
+-- Table structure for table `entrance`
 --
 
-DROP TABLE IF EXISTS `entrances`;
-CREATE TABLE IF NOT EXISTS `entrances` (
+DROP TABLE IF EXISTS `entrance`;
+CREATE TABLE IF NOT EXISTS `entrance` (
   `entranceID` int(6) NOT NULL AUTO_INCREMENT,
   `buildingID` int(6) NOT NULL,
-  `entranceYAxis` int(6) NOT NULL,
-  `entranceXAxis` int(6) NOT NULL,
+  `nodeID` int(6) NOT NULL,
   `entranceDisabledAccess` tinyint(1) NOT NULL,
   PRIMARY KEY (`entranceID`),
-  KEY `EntranceFK01` (`buildingID`) USING BTREE,
-  KEY `IndexentranceDisabledAccess` (`entranceDisabledAccess`) USING BTREE,
-  KEY `IndexentranceYAxis` (`entranceYAxis`) USING BTREE,
-  KEY `IndexentranceXAxis` (`entranceXAxis`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `entrances`
---
-
-INSERT INTO `entrances` (`entranceID`, `buildingID`, `entranceYAxis`, `entranceXAxis`, `entranceDisabledAccess`) VALUES
-(17, 23461, 51, -1, 1),
-(29, 23462, 78, 12, 1),
-(32, 23462, 12, 98, 1),
-(33, 23462, 66, 51, 0),
-(35, 23461, 39, 65, 1);
+  KEY `EntranceFK01` (`buildingID`),
+  KEY `EntranceFK02` (`nodeID`),
+  KEY `IndexentranceDisabledAccess` (`entranceDisabledAccess`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -119,27 +86,27 @@ CREATE TABLE IF NOT EXISTS `floor` (
   `buildingID` int(6) NOT NULL,
   `floorNumberOfElevators` int(6) NOT NULL,
   `floorNumberOfStairs` int(6) NOT NULL,
-  `floorNumberOfNodes` int(6) NOT NULL,
-  `floorfloorNumberOfRooms` int(6) NOT NULL,
+  `floorNumberOfRooms` int(6) NOT NULL,
   PRIMARY KEY (`floorID`) USING BTREE,
   KEY `FloorFK01` (`buildingID`) USING BTREE,
   KEY `IndexfloorNumberOfElevators` (`floorNumberOfElevators`),
   KEY `IndexfloorNumberOfStairs` (`floorNumberOfStairs`),
-  KEY `IndexfloorNumberOfNodes` (`floorNumberOfNodes`),
-  KEY `IndexfloorNumberOfRooms` (`floorfloorNumberOfRooms`)
+  KEY `IndexfloorNumberOfRooms` (`floorNumberOfRooms`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `floor`
+-- Table structure for table `junction`
 --
 
-INSERT INTO `floor` (`floorID`, `buildingID`, `floorNumberOfElevators`, `floorNumberOfStairs`, `floorNumberOfNodes`, `floorfloorNumberOfRooms`) VALUES
-(3, 23461, 1, 2, 20, 15),
-(4, 23461, 1, 2, 8, 6),
-(5, 23461, 1, 2, 12, 12),
-(12, 23462, 1, 1, 5, 7),
-(13, 23462, 0, 1, 10, 8),
-(14, 23462, 0, 1, 2, 5);
+DROP TABLE IF EXISTS `junction`;
+CREATE TABLE IF NOT EXISTS `junction` (
+  `junctionID` int(11) NOT NULL AUTO_INCREMENT,
+  `nodeID` int(11) NOT NULL,
+  PRIMARY KEY (`junctionID`),
+  KEY `JuncionFK01` (`nodeID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -177,38 +144,15 @@ CREATE TABLE IF NOT EXISTS `nodes` (
   `floorID` int(6) NOT NULL,
   `nodeYAxis` int(6) NOT NULL,
   `nodeXAxis` int(6) NOT NULL,
+  `nodeNorthAdjacent` int(6) NOT NULL,
+  `nodeEastAdjacent` int(6) NOT NULL,
+  `nodeSouthAdjacent` int(6) NOT NULL,
+  `nodeWestAdjacent` int(6) NOT NULL,
   PRIMARY KEY (`nodeID`),
   KEY `NodesFK01` (`floorID`),
   KEY `IndexnodeYAxis` (`nodeYAxis`),
   KEY `IndexnodeXAxis` (`nodeXAxis`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `nodes`
---
-
-INSERT INTO `nodes` (`nodeID`, `floorID`, `nodeYAxis`, `nodeXAxis`) VALUES
-(1, 3, 5, 5),
-(3, 3, 6, 6),
-(4, 4, 7, 7),
-(6, 3, 5, 5),
-(7, 3, 5, 5),
-(8, 3, 7, 8),
-(9, 5, 12, 56),
-(10, 5, 16, 98),
-(11, 5, 78, 34),
-(12, 4, 15, 33),
-(13, 12, 16, 39),
-(14, 12, 16, 100),
-(15, 12, 67, 123),
-(16, 13, 88, 1),
-(17, 13, 99, 13),
-(18, 13, 2, 77),
-(19, 13, 21, 88),
-(20, 13, 1, 99),
-(21, 14, 5, 7),
-(22, 14, 8, 11),
-(23, 14, 81, 66);
 
 -- --------------------------------------------------------
 
@@ -219,44 +163,12 @@ INSERT INTO `nodes` (`nodeID`, `floorID`, `nodeYAxis`, `nodeXAxis`) VALUES
 DROP TABLE IF EXISTS `room`;
 CREATE TABLE IF NOT EXISTS `room` (
   `roomID` int(6) NOT NULL AUTO_INCREMENT,
-  `floorID` int(6) NOT NULL,
-  `roomYAxis` int(6) NOT NULL,
-  `roomXAxis` int(6) NOT NULL,
+  `nodeID` int(6) NOT NULL,
   `roomSize` int(6) NOT NULL,
   PRIMARY KEY (`roomID`),
-  KEY `RoomFK01` (`floorID`) USING BTREE,
-  KEY `IndexroomSize` (`roomSize`) USING BTREE,
-  KEY `IndexroomXAxis` (`roomXAxis`) USING BTREE,
-  KEY `IndexroomYAxis` (`roomYAxis`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `room`
---
-
-INSERT INTO `room` (`roomID`, `floorID`, `roomYAxis`, `roomXAxis`, `roomSize`) VALUES
-(1, 3, 67, 76, 22),
-(2, 3, 1245, 76, 22),
-(3, 3, 3, 107, 22),
-(4, 3, 77, 55, 22),
-(5, 4, 12, 89, 6),
-(6, 4, 12, 72, 60),
-(7, 4, 12, 80, 67),
-(8, 4, 15, 90, 67),
-(9, 5, 28, 90, 67),
-(10, 5, 50, 32, 40),
-(11, 5, 50, 20, 40),
-(12, 5, 50, 15, 45),
-(13, 12, 34, 43, 15),
-(14, 12, 23, 51, 16),
-(15, 12, 78, 34, 37),
-(16, 12, 41, 19, 90),
-(17, 13, 56, 20, 13),
-(18, 13, 54, 27, 67),
-(19, 13, 23, 56, 74),
-(20, 14, 5, 516, 3468),
-(21, 14, 1, 1, 300),
-(22, 14, 27, 27, 754);
+  KEY `NodesFK01` (`nodeID`),
+  KEY `roomSize` (`roomSize`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -267,23 +179,10 @@ INSERT INTO `room` (`roomID`, `floorID`, `roomYAxis`, `roomXAxis`, `roomSize`) V
 DROP TABLE IF EXISTS `stairs`;
 CREATE TABLE IF NOT EXISTS `stairs` (
   `stairsID` int(6) NOT NULL AUTO_INCREMENT,
-  `floorID` int(6) NOT NULL,
-  `stairsYAxis` int(6) NOT NULL,
-  `stairsXAxis` int(6) NOT NULL,
+  `nodeID` int(6) NOT NULL,
   PRIMARY KEY (`stairsID`) USING BTREE,
-  KEY `StairsFK01` (`floorID`) USING BTREE,
-  KEY `IndexstairsYAxis` (`stairsYAxis`) USING BTREE,
-  KEY `IndexstairsXAxis` (`stairsXAxis`) USING BTREE
+  KEY `StairsFK01` (`nodeID`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `stairs`
---
-
-INSERT INTO `stairs` (`stairsID`, `floorID`, `stairsYAxis`, `stairsXAxis`) VALUES
-(1, 3, 60, 60),
-(2, 12, 143, 1),
-(5, 3, 256, 265);
 
 --
 -- Constraints for dumped tables
@@ -293,19 +192,26 @@ INSERT INTO `stairs` (`stairsID`, `floorID`, `stairsYAxis`, `stairsXAxis`) VALUE
 -- Constraints for table `elevator`
 --
 ALTER TABLE `elevator`
-  ADD CONSTRAINT `elevator_ibfk_1` FOREIGN KEY (`floorID`) REFERENCES `floor` (`floorID`);
+  ADD CONSTRAINT `elevator_ibfk_1` FOREIGN KEY (`nodeID`) REFERENCES `nodes` (`nodeID`);
 
 --
--- Constraints for table `entrances`
+-- Constraints for table `entrance`
 --
-ALTER TABLE `entrances`
-  ADD CONSTRAINT `entrances_ibfk_1` FOREIGN KEY (`buildingID`) REFERENCES `building` (`builingID`);
+ALTER TABLE `entrance`
+  ADD CONSTRAINT `entrance_ibfk_1` FOREIGN KEY (`nodeID`) REFERENCES `nodes` (`nodeID`),
+  ADD CONSTRAINT `entrance_ibfk_2` FOREIGN KEY (`buildingID`) REFERENCES `building` (`builingID`);
 
 --
 -- Constraints for table `floor`
 --
 ALTER TABLE `floor`
   ADD CONSTRAINT `floor_ibfk_1` FOREIGN KEY (`buildingID`) REFERENCES `building` (`builingID`);
+
+--
+-- Constraints for table `junction`
+--
+ALTER TABLE `junction`
+  ADD CONSTRAINT `junction_ibfk_1` FOREIGN KEY (`nodeID`) REFERENCES `nodes` (`nodeID`);
 
 --
 -- Constraints for table `nodes`
@@ -317,13 +223,13 @@ ALTER TABLE `nodes`
 -- Constraints for table `room`
 --
 ALTER TABLE `room`
-  ADD CONSTRAINT `room_ibfk_1` FOREIGN KEY (`floorID`) REFERENCES `floor` (`floorID`);
+  ADD CONSTRAINT `room_ibfk_1` FOREIGN KEY (`nodeID`) REFERENCES `nodes` (`nodeID`);
 
 --
 -- Constraints for table `stairs`
 --
 ALTER TABLE `stairs`
-  ADD CONSTRAINT `stairs_ibfk_1` FOREIGN KEY (`floorID`) REFERENCES `floor` (`floorID`);
+  ADD CONSTRAINT `stairs_ibfk_1` FOREIGN KEY (`nodeID`) REFERENCES `nodes` (`nodeID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
