@@ -121,20 +121,44 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
             exit();
         }
     
-}else if(isset($_GET['roomStuff']) && isset($_GET['buildingID']))
+}else if(isset($_GET['roomStuff']))
 {
-    $results = array();
-    $building = $_GET['buildingID'];
-    $result = $conn->prepare("SELECT * from rooms WHERE buildingID= :building");
-    $result->bindParam(':building', $building);
-    $result->execute();
-    $rooms = $result->fetchAll();
-    
-    foreach($rooms as $row) 
+    if(!isset($_GET['buildingName']))
     {
-        array_push($results, $row['roomID']);
+        $results = array();
+        $result = $conn->prepare("SELECT buildingName from building");
+        $result->execute();
+        $buildingNames = $result->fetchAll();
+        foreach($buildingNames as $row)
+        {
+            array_push($results, $row['buildingName']);
+        }
+        echo implode(" ",$results);
     }
-    echo implode(" ",$results);
+    else{
+        $buildingName = $_GET['buildingName'];
+        $results = array();
+        $result = $conn->prepare("SELECT buildingNumberOfFloors FROM building WHERE buildingName= :buildingName");
+        $result->bindParam(':buildingName', $buildingName);
+        $result->execute();
+        $floorNumber = $result->fetchAll();
+        foreach($floorNumber as $row)
+        {
+            echo $row['buildingNumberOfFloors'];
+        }
+    }
+    
+    //$building = $_GET['buildingID'];
+    //$result = $conn->prepare("SELECT buildingName from building");
+    //$result->bindParam(':building', $building);
+    //$result->execute();
+    //$rooms = $result->fetchAll();
+    
+    //foreach($rooms as $row) 
+    //{
+     //   array_push($results, $row['buildingName']);
+    //}
+    //echo implode(" ",$results);
 }else if(isset($_POST['nodeBool']))
 {
     $nodeID = NULL;
@@ -149,7 +173,7 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
     $result->bindParam(':nodeXAxis', $nodeXAxis);
     $result->execute();
     header("post2.html");
-    
+
 }else if(isset($_POST['roomBool']))
 {
     $roomID = NULL;
