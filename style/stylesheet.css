@@ -84,3 +84,51 @@ input[type=checkbox] {
   font-size: 2em;
   line-height: 5em;
 }
+
+#legendid{
+  font-family: verdana;
+  padding-left:2px;
+}
+
+#fieldsetid{
+  padding-left:15px;
+  width:600px;
+  height: 220px;
+}
+
+.FormTitle {
+  font-family: verdana;
+  font-size: 100%;
+  padding : 4px;
+  margin: 10px;
+
+}
+
+
+.EmailPass{
+  font-family: verdana;
+  font-size: 100%;
+  padding : 4px;
+  margin: 10px;
+
+}
+
+.Name{
+  position: relative ;
+  padding :4px;
+  margin: 10px;
+}
+
+/*.textbox{
+  position: relative ;
+  padding :7px;
+  margin: 5px;
+}*/
+
+#submitbut{
+  font-family: verdana;
+  font-size: 90%;
+  padding: 10px;
+  min-height:20px;
+  margin: 10px;
+}
