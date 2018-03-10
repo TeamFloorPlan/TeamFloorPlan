@@ -18,25 +18,32 @@ function displayMap(el) {
 /*Function to determine which building and which floor to display*/
 function getBuilding() {
   /*Gets input of building name from text entry box*/
-  switch (document.getElementById('buildingVal').value) {
+  var inputString = document.getElementById('buildingVal').value;
+  var inputStringLower = inputString.toLowerCase();
+  switch (inputStringLower) {
     case "liongate":
     /*Gets input of floor number from spinner*/
       switch (document.getElementById('floor').value) {
         case "0":
-          var build="img/liongateLevel0.svg"
+          var build="img/Liongate/liongateLevel0.svg"
           break;
-        case "1":
-          var build="img/liongateLevel1.svg"
+          case "1":
+          var build="img/Liongate/liongateLevel1.svg"
+          break;
+        case "2":
+          var build="img/Liongate/liongateLevel2.svg"
           break;
       }
       break;
+    /*Gets input of building name from text entry box*/
     case "portland":
+      /*Gets input of floor number from spinner*/
       switch (document.getElementById('floor').value) {
         case "0":
-          var build="img/portlandLevel0.svg"
+          var build="img/Portland/portlandLevel0.svg"
           break;
         case "1":
-          var build="img/portlandLevel0.svg"
+          var build="img/Portland/portlandLevel0.svg"
           break;
         }
       break;
