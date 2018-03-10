@@ -118,8 +118,9 @@ input[type=checkbox] {
 
 .Name{
   position: relative ;
-  padding :4px;
+  padding :10px;
   margin: 10px;
+  font-size:100%;
 }
 
 /*.textbox{
