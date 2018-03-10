@@ -120,7 +120,7 @@ input[type=checkbox] {
   position: relative ;
   padding :10px;
   margin: 10px;
-  font-size:100%;
+  font-size:100
 }
 
 /*.textbox{
@@ -129,10 +129,29 @@ input[type=checkbox] {
   margin: 5px;
 }*/
 
-#submitbut{
-  font-family: verdana;
-  font-size: 90%;
-  padding: 10px;
-  min-height:20px;
-  margin: 10px;
+button {
+    background-color: #4CAF50;
+    color: white;
+    display:block;
+    padding: 14px 20px;
+    margin: auto;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    opacity: 0.9;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.cancelbtn{
+  padding: 14px 20px;
+  background-color:#9933ff;
+border-radius: 25px;
+}
+
+.signupbtn{
+  background-color: #0066ff;
+  border-radius: 25px;
 }
