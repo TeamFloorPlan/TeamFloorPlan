@@ -31,11 +31,13 @@
         <!-- User enters room id -->
         <input type="text" name="roomVal" id="room" value="0.00">
         <!-- Click button to run displayMap function -->
-        <input id="clickMe" type="button" value="Show Map" onclick="displayMap(window.mapCanvas);" />
+        <input id="mapBtn" type="button" value="Show Map" onclick="displayMap(window.mapCanvas);" />
+        <input id="arrBtn" type="button" value="Plot Array" onclick="plotArray(mapCanvas, testArray)" />
       </form>
       <!-- Div where the map will be drawn -->
       <div id="mapDiv">
         <canvas id="mapCanvas" width="500" height="350"></canvas>
+
       <div>
     </section>
 

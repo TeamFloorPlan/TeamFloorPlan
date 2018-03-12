@@ -49,3 +49,25 @@ function getBuilding() {
   /*Returns the location of the appropriate image*/
   return build;
 }
+
+var testArray = [0,0,500,350]
+
+function arrayToFirstCoords(roomCoords, coordPoint) {
+  var coord = [(roomCoords[coordPoint*2-2]),(roomCoords[coordPoint*2-1])]
+  return coord;
+}
+
+function arrayToSecondCoords(roomCoords, coordPoint) {
+  var coord = [(roomCoords[coordPoint*2]),(roomCoords[coordPoint*2+1])]
+  return coord;
+}
+
+function plotArray(el, roomCoords) {
+  for (var i=1; i < (roomCoords.length/2)+1; i+=1) {
+    var c = el.getContext("2d");
+    c.beginPath();
+    c.moveTo(arrayToFirstCoords(roomCoords,i)[0],arrayToFirstCoords(roomCoords,i)[1]);
+    c.lineTo(arrayToSecondCoords(roomCoords,i)[0],arrayToSecondCoords(roomCoords,i)[1]);
+    c.stroke();
+  }
+}
