@@ -18,9 +18,7 @@ function displayMap(el) {
 /*Function to determine which building and which floor to display*/
 function getBuilding() {
   /*Gets input of building name from text entry box*/
-  var inputString = document.getElementById('buildingVal').value;
-  var inputStringLower = inputString.toLowerCase();
-  switch (inputStringLower) {
+  switch ((document.getElementById('buildingVal').value).toLowerCase()) {
     case "liongate":
     /*Gets input of floor number from spinner*/
       switch (document.getElementById('floor').value) {
