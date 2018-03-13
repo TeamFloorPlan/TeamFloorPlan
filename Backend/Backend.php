@@ -4,13 +4,14 @@ $errmsg_arr = array();
 $errflag    = false;
 // configuration
 $dbhost     = "localhost";      //Address of the database
-$dbname     = "floorplan";            //Name for the database
+$dbname     = "floorplanv2";            //Name for the database
 $dbuser     = "root";           //Name of the MySQL user
 $dbpass     = "";               //Password of the MySQL user
 
 $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass); //Declaring a new PDO connection
 
 print_r(error_get_last());
+
 
 /*
 TODO:
@@ -56,22 +57,22 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
                 }
                 else
                 {
-                    $check = $conn->prepare("SELECT * FROM `logindetails` WHERE username=:username or email=:email");
+                    $check = $conn->prepare("SELECT * FROM `logindetails` WHERE loginUsername=:username or loginEmail=:email");
                     $check->bindParam(':username',$user);
                     $check->bindParam(':email',$email);
                     $check->execute();
                     $checkuser = $check->fetchAll();
                     foreach($checkuser as $row)
                     {
-                        header("taken.html");
+                        header("Location: taken.html");
                         exit;
                     }
 
 
 
 
-                    $verified = "false";
-                    $result = $conn->prepare("INSERT INTO logindetails (username, password, email) VALUES (:username, :password, :email)");
+                    //$verified = "false";
+                    $result = $conn->prepare("INSERT INTO logindetails (loginUsername, loginPassword , loginEmail) VALUES (:username, :password, :email)");
                     $result->bindParam(':username', $user); //Replacing prepared statement vars with username and password
                     $result->bindParam(':password', $password);
                     $result->bindParam(':email', $email);
@@ -147,32 +148,29 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
             echo $row['buildingNumberOfFloors'];
         }
     }
-    
-    //$building = $_GET['buildingID'];
-    //$result = $conn->prepare("SELECT buildingName from building");
-    //$result->bindParam(':building', $building);
-    //$result->execute();
-    //$rooms = $result->fetchAll();
-    
-    //foreach($rooms as $row) 
-    //{
-     //   array_push($results, $row['buildingName']);
-    //}
-    //echo implode(" ",$results);
+
 }else if(isset($_POST['nodeBool']))
 {
     $nodeID = NULL;
     $floorID = $_POST['floorID'];
     $nodeYAxis = $_POST['nodeYAxis'];
     $nodeXAxis = $_POST['nodeXAxis'];
+    $nodeNorthAdjacent = $_POST['nodeNorthAdjacent'];
+    $nodeEastAdjacent = $_POST['nodeEastAdjacent'];
+    $nodeSouthAdjacent = $_POST['nodeSouthAdjacent'];
+    $nodeWestAdjacent = $_POST['nodeWestAdjacent'];
 
-    $result = $conn->prepare("INSERT INTO nodes (nodeID, floorID, nodeYAxis, nodeXAxis) VALUES (:nodeID, :floorID, :nodeYAxis, :nodeXAxis)");
+    $result = $conn->prepare("INSERT INTO nodes (nodeID, floorID, nodeXAxis, nodeYAxis, nodeGetNorth, nodeGetEast, nodeGetSouth, nodeGetWest) VALUES (:nodeID, :floorID, :nodeYAxis, :nodeXAxis, :nodeNorthAdjacent, :nodeEastAdjacent, :nodeSouthAdjacent, :nodeWestAdjacent)");
     $result->bindParam(':nodeID', $nodeID);
     $result->bindParam(':floorID', $floorID);
     $result->bindParam(':nodeYAxis', $nodeYAxis);
     $result->bindParam(':nodeXAxis', $nodeXAxis);
+    $result->bindParam(':nodeNorthAdjacent', $nodeNorthAdjacent);
+    $result->bindParam(':nodeEastAdjacent', $nodeEastAdjacent);
+    $result->bindParam(':nodeSouthAdjacent', $nodeSouthAdjacent);
+    $result->bindParam(':nodeWestAdjacent', $nodeWestAdjacent);
     $result->execute();
-    header("post2.html");
+    header("Location: post2.html");
 
 }else if(isset($_POST['roomBool']))
 {
