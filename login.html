@@ -19,36 +19,18 @@
     <section>
     <form action="/backend/backend.php">
       <br>
+      <fieldset id="fieldsetid">
+        <legend id="legendid">Login</legend>
+         <!-- <p class="FormTitle">Username:</p> -->
+         <input type="text" name="Username" placeholder="Username"   class="EmailPass">
 
-         <p class="FormTitle">Username:</p>
-         <input type="text" name="Username" placeholder="Enter Username"   class="Name">
-
-
-         <!-- <p class="FormTitle">Surname:</p> -->
-         <input type="text" name="Surname" placeholder="Your Last Name"  class="Name">
-
-         <p class="FormTitle">Username:</p>
-         <input type="text" name ="Username" placeholder="Unique Username" class="EmailPass">
-
-         <p class="FormTitle">Password:</p>
+         <!-- <p class="FormTitle">Password:</p> -->
          <input type="password" name="password" placeholder="Password"  class="EmailPass">
-
-
-
-         <p class="FormTitle">Confirm Password:</p>
-         <input type="password" name="cpassword" placeholder="Re-enter Password" class="EmailPass">
-
-         <p class="FormTitle">Email Address:</p>
-         <input type="text" name="E-mail" placeholder="Your Email" class="EmailPass">
-
-         <br>
-
-         <!-- <input type="submit" value="Sign Up" id="submitbut"> -->
-         <button type="submit" class ="signupbtn"> Sign me up!</button>
-         <br>
-         <button type= "button" class ="cancelbtn">Cancel</button>
+       </fieldset>
        </form>
-
+       <br>
+       <button type="submit" class ="signupbtn"> Sign in</button>
+       <a href="createAccountForm.html" style="text-decoration:none;">Don't have one? Sign up now</a>
        </section>
        </body>
      </html>
