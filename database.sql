@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 13, 2018 at 08:19 PM
+-- Generation Time: Mar 13, 2018 at 08:57 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -59,6 +59,20 @@ CREATE TABLE IF NOT EXISTS `building` (
 
 INSERT INTO `building` (`buildingName`, `buildingNumberOfEntrances`, `buildingNumberOfFloors`) VALUES
 ('a', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `elevator`
+--
+
+DROP TABLE IF EXISTS `elevator`;
+CREATE TABLE IF NOT EXISTS `elevator` (
+  `elevatorID` int(6) NOT NULL AUTO_INCREMENT,
+  `floorID` int(6) NOT NULL,
+  PRIMARY KEY (`elevatorID`),
+  KEY `elevatorFK01` (`floorID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -133,11 +147,13 @@ CREATE TABLE IF NOT EXISTS `path` (
   `roomID` int(6) DEFAULT NULL,
   `entranceID` int(6) DEFAULT NULL,
   `stairID` int(6) DEFAULT NULL,
-  `ArrayID` int(6) NOT NULL,
+  `elevatorID` int(6) DEFAULT NULL,
+  `ArrayID` int(6) DEFAULT NULL,
   PRIMARY KEY (`pathID`),
-  KEY `pathFK01` (`roomID`,`entranceID`,`stairID`),
   KEY `stairID` (`stairID`),
-  KEY `entranceID` (`entranceID`)
+  KEY `entranceID` (`entranceID`),
+  KEY `pathFK01` (`roomID`,`entranceID`,`stairID`,`elevatorID`) USING BTREE,
+  KEY `elevatorID` (`elevatorID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -180,6 +196,12 @@ ALTER TABLE `array`
   ADD CONSTRAINT `array_ibfk_1` FOREIGN KEY (`pathID`) REFERENCES `path` (`pathID`);
 
 --
+-- Constraints for table `elevator`
+--
+ALTER TABLE `elevator`
+  ADD CONSTRAINT `elevator_ibfk_1` FOREIGN KEY (`floorID`) REFERENCES `floor` (`floorID`);
+
+--
 -- Constraints for table `entrance`
 --
 ALTER TABLE `entrance`
@@ -197,7 +219,8 @@ ALTER TABLE `floor`
 ALTER TABLE `path`
   ADD CONSTRAINT `path_ibfk_1` FOREIGN KEY (`roomID`) REFERENCES `room` (`roomID`),
   ADD CONSTRAINT `path_ibfk_2` FOREIGN KEY (`stairID`) REFERENCES `stair` (`stairsID`),
-  ADD CONSTRAINT `path_ibfk_3` FOREIGN KEY (`entranceID`) REFERENCES `entrance` (`entranceID`);
+  ADD CONSTRAINT `path_ibfk_3` FOREIGN KEY (`entranceID`) REFERENCES `entrance` (`entranceID`),
+  ADD CONSTRAINT `path_ibfk_4` FOREIGN KEY (`elevatorID`) REFERENCES `elevator` (`elevatorID`);
 
 --
 -- Constraints for table `room`
