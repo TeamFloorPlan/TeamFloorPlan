@@ -12,7 +12,7 @@ header{
 #logo{
   position: fixed;
   margin-top: 0.5em;
-  margin-left: 1em;
+  right: 30px;
   width: 9em;
 }
 
@@ -28,8 +28,10 @@ nav{
 }
 
 nav a{
+  font-size: 1.1em;
   color: #F3FEFF;
   font-family: "Arial", Charcoal, sans-serif;
+  text-decoration: none;
 }
 
 /* nav anchor hover styling*/
@@ -37,6 +39,7 @@ nav a{
 nav a:hover{
   color: #2EE3FF;
 }
+
 
 #current_page{
   color: #2EE3FF;
@@ -50,14 +53,15 @@ body {
 
 section {
   position: absolute;
-  height: auto;
+  bottom: -40%;
   top: 12%;
   left: 10%;
   width: 75%;
-  bottom: -40%;
   background-color: white;
   padding-top: 3em;
   padding-left: 3em;
+  border-right: solid black 1px;
+  border-left: solid black 1px;
 }
 
 #mapDiv {
@@ -96,6 +100,8 @@ input[type=checkbox] {
 }
 
 #fieldsetid{
+  margin-left: 30%;
+  margin-right: 30%;
   padding-left:15px;
   padding-bottom: 30px;
   padding-top: 30px;
@@ -168,6 +174,9 @@ button:hover {
 .signupbtn{
   background-color: #0066ff;
   border-radius: 25px;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
 }
 
 #homeBanner {
@@ -179,6 +188,7 @@ button:hover {
   background-size: cover;
   border-top: solid black 2px;
   border-bottom: solid black 2px;
+  z-index: 1;
 }
 
 #bannerMain {
@@ -205,7 +215,7 @@ button:hover {
   display: block;
   border-radius: 20px;
   border: solid white 3px;
-  margin-left: 1100px;
+  margin-left: 75%;
   margin-top: -120px;;
 }
 
@@ -226,4 +236,34 @@ button:hover {
 #homeInfo h2 {
   font-size: 32px;
   width: 90%;
+}
+
+#homeInfo2 {
+  position: absolute;
+  font-family: "Arial", sans-serif;
+  width: 25%;
+  margin-left: 65%;
+  top: 370px;
+  z-index: 0;
+}
+
+#homeInfo2 p {
+  line-height: 1.3em;
+  font-size: 18px;
+  width: 90%;
+}
+
+#homeInfo2 ul {
+  line-height: 1.3em;
+  font-size: 18px;
+  width: 90%;
+}
+
+#homeInfo2 h2 {
+  font-size: 32px;
+  width: 90%;
+}
+
+li {
+  line-height: 1.5em;
 }

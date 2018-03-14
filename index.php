@@ -10,7 +10,7 @@
   <header>
     <a href="index.html"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.png"
      alt="Logo"></a>
-    <h1>Homepage</h1>
+    <h1>Home</h1>
       <nav>
         <a id="current_page">Home</a> |
         <a href="login.html" aria-label="Navigate to the sign in page">Login</a> |
@@ -31,6 +31,18 @@
         <p>The 'University Of Portsmouth Room Finder' is a web application designed to help you on your educational journey through life. By signing up you will gain access to a system designed by and for students to get you from A to B in your first days on campus.</p>
         <p>It's as simple as entering your building, floor and room number. Our world class mapping algorithm will guide you to your classroom, avoiding that first week panic.</p>.
         <img src="img/lostStudent.png" width="90%">
+      </div>
+      <div id="homeInfo2">
+        <h2>Features and Updates</h2>
+        <ul>
+          <li>A modern login system with strong password encryption</li>
+          <li>A complex mapping algorithm that will find you the quickest route</li>
+          <li>A simplistic and intuitive design</li>
+          <li>Created by a team of experts from all over portsea island</li>
+          <li>Planned expansion to dozens of university buildings</li>
+          <li>Planned expansion to university accommodation buildings</li>
+          <li>Planned integration with Google Calendar</li>
+        </ul>
       </div>
     </section>
 
