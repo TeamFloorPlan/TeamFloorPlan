@@ -17,19 +17,34 @@
   </header>
   <body>
     <section>
-    <form action="/backend/backend.php">
+    <form action="/TeamFloorPlan/Backend/Backend.php" method="post">
       <br>
       <fieldset id="fieldsetid">
         <legend id="legendid">Login</legend>
          <!-- <p class="FormTitle">Username:</p> -->
-         <input type="text" name="Username" placeholder="Username"   class="EmailPass">
+         <input type="text" name="username" placeholder="Username"   class="EmailPass">
 
          <!-- <p class="FormTitle">Password:</p> -->
          <input type="password" name="password" placeholder="Password"  class="EmailPass">
+         <?php
+          include("/Backend/Backend.php");
+          if(isset($_SESSION['user']))
+          {
+            header("location: buildingSelect.php");
+          }
+
+          if(isset($_GET['loginError']))
+          {
+            echo "Please enter a valid username and password";
+          }
+          
+         ?>
+         <input type="hidden" name="Login" value="1">
        </fieldset>
+       <button type="submit" class ="signupbtn"> Sign in</button>
        </form>
        <br>
-       <button type="submit" class ="signupbtn"> Sign in</button>
+       
        <a href="createAccountForm.html" style="text-decoration:none;">Don't have one? Sign up now</a>
        </section>
        </body>

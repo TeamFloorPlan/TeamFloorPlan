@@ -17,7 +17,7 @@
   </header>
   <body>
     <section>
-    <form action="/backend/backend.php">
+    <form action="/TeamFloorPlan/Backend/Backend.php" method="post">
       <br>
        <fieldset id="fieldsetid">
          <legend id="legendid">Personal information:</legend>
@@ -30,7 +30,7 @@
       </fieldset>
 
          <p class="FormTitle">Username:</p>
-         <input type="text" name ="Username" placeholder="Unique Username" class="EmailPass">
+         <input type="text" name ="username" placeholder="Unique Username" class="EmailPass">
 
          <p class="FormTitle">Password:</p>
          <input type="password" name="password" placeholder="Password"  class="EmailPass">
@@ -41,10 +41,26 @@
          <input type="password" name="cpassword" placeholder="Re-enter Password" class="EmailPass">
 
          <p class="FormTitle">Email Address:</p>
-         <input type="text" name="E-mail" placeholder="Your Email" class="EmailPass">
-
+         <input type="text" name="email" placeholder="Your Email" class="EmailPass">
+         <input type="hidden" name="Signup" value="1">
          <br>
+         <?php
+         if(isset($_GET['error']))
+         {
+            $error = $_GET['error'];
+         
 
+         if($error == "errorUsernameTaken")
+         {
+          echo "Username or email already in use.";
+         }else if ($error == "invalidUsername") {
+           echo "Invalid username";
+         }else if($error == "passwordError"){
+            echo "Passwords do not match";
+         }
+         }
+
+         ?>
          <!-- <input type="submit" value="Sign Up" id="submitbut"> -->
          <button type="submit" class ="signupbtn"> Sign me up!</button>
          <br>

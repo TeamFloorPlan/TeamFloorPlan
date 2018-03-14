@@ -4,7 +4,7 @@ $errmsg_arr = array();
 $errflag    = false;
 // configuration
 $dbhost     = "localhost";      //Address of the database
-$dbname     = "floorplanv2";            //Name for the database
+$dbname     = "insefinal";            //Name for the database
 $dbuser     = "root";           //Name of the MySQL user
 $dbpass     = "";               //Password of the MySQL user
 
@@ -26,7 +26,7 @@ TODO:
 if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']) && isset($_POST['password']))//If a new user is signing up
 {
    
-               // echo "gothere";
+                
                 $user = $_POST['username'];			//Get Username
                 $email = $_POST['email'];			//Get Email
                 $password = hash('sha256',($_POST['password']),false);		//Get password and conformation of password hashes
@@ -35,36 +35,34 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
 
                 if($password!=$cpassword)		//Check that passwords are the same
                 {
-                    header("eggboy.html"); //TODO: Redirect to page telling the user the two passwords aren't the same
+                    header("location: ../createAccountForm.php?error=passwordError"); //TODO: Redirect to page telling the user the two passwords aren't the same
                     exit;
                 }
 
                 if(!preg_match('/^[A-Za-z0-9_~\-!@#\$%\^&*\(\)]+$/' , $user)) //Sanitise the user input. Only allow A-Z and 0-9 in the username
                 {
-                         header("ham.html");
+                         header("location: ../createAccountForm.php?error=invalidUsername");
                          exit;
                 }
                     
                     
                 
-               
+               echo "hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
 
                 if($user == '' || $email == '' || $password == '')
                 {
-                    $errmsg_arr[] = 'Form is incomplete'; //Error checking
-                    $errflag = true;
-                    echo "there was an error";
+                    header("location: ../createAccountForm.php?error=invalidUsername");
                 }
                 else
                 {
-                    $check = $conn->prepare("SELECT * FROM `logindetails` WHERE loginUsername=:username or loginEmail=:email");
+                    $check = $conn->prepare("SELECT * FROM logindetails WHERE loginUsername=:username or loginEmail=:email");
                     $check->bindParam(':username',$user);
                     $check->bindParam(':email',$email);
                     $check->execute();
                     $checkuser = $check->fetchAll();
                     foreach($checkuser as $row)
                     {
-                        header("Location: taken.html");
+                        header("Location: ../createAccountForm.php?error=errorUsernameTaken");
                         exit;
                     }
 
@@ -76,9 +74,8 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
                     $result->bindParam(':username', $user); //Replacing prepared statement vars with username and password
                     $result->bindParam(':password', $password);
                     $result->bindParam(':email', $email);
-                    echo $email;
                     $result->execute();
-                    header("ayy.html");
+                    header("location: ../login.php");
                 }
 
             
@@ -86,10 +83,11 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
     
 }else if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['Login'])) 
 {
+        echo "heeeeee";
     
         $user     = $_POST['username'];
         $password = hash('sha256',($_POST['password']),false);
-        
+        //echo $password;       
         if ($user == '') {
             $errmsg_arr[] = 'You must enter your Username';
             $errflag      = true;
@@ -98,18 +96,19 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
             $errmsg_arr[] = 'You must enter your Password';
             $errflag      = true;
         }
-        
+        echo $user;
+        echo $password;
         // query
-        $result = $conn->prepare("SELECT * FROM logindetails WHERE username= :username AND password= :password");
-        $result->bindParam(':username', $user);
+        $result = $conn->prepare("SELECT * FROM logindetails WHERE loginUsername= :user AND loginPassword= :password");
+        $result->bindParam(':user', $user);
         $result->bindParam(':password', $password);
         $result->execute();
         $rows = $result->fetch(PDO::FETCH_NUM);
         if ($rows > 0) {
             
-            $_SESSION['user'] = $user;	//Start user session login successful
+            $_SESSION['user'] = $user;
             session_write_close();
-            header("Placeholder");
+            header("location: ../buildingSelect.php");
         } else {
             $errmsg_arr[] = 'Username and Password are not found';
             $errflag      = true;
@@ -117,12 +116,12 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
         if ($errflag) {
             $_SESSION['ERRMSG_ARR'] = $errmsg_arr;
             session_write_close();
-            header("Placeholder");
+            header("location: ../login.php?loginError=1");
            // echo $errmsg_arr;
             exit();
         }
     
-}else if(isset($_GET['roomStuff']))
+} else if(isset($_GET['roomStuff']))
 {
     if(!isset($_GET['buildingName']))
     {
@@ -188,6 +187,31 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
     $result->bindParam(':roomSize',$roomSize);
     $result->execute();
     header("post2.html");
+}else if(isset($_GET['roomID']))
+{
+    $roomID = $_GET['roomID'];
+    $result = $conn->prepare("SELECT room.roomID FROM room WHERE room.roomName= :roomID");
+    $result->bindParam(':roomID',$roomID);
+    $result->execute();
+
+    $floorNumber = $result->fetchAll();
+    foreach($floorNumber as $row)
+    {
+        echo $row['roomID'];
+    }
+}else if(isset($_GET['pathEntranceID']))
+{
+    $roomID = $_GET['roomIDSelect'];
+    $pathEntranceID = $_GET['pathEntranceID'];
+    $result = $conn->prepare("SELECT path.pathCoordinates FROM path WHERE path.EntranceID= :pathEntranceID AND path.roomID= :roomID");
+    $result->bindParam(':pathEntranceID',$pathEntranceID);
+    $result->bindParam(':roomID',$roomID);
+    $result->execute();
+    $floorNumber = $result->fetchAll();
+    foreach($floorNumber as $row)
+    {
+        echo $row['pathCoordinates'];
+    }
 }
 
 
