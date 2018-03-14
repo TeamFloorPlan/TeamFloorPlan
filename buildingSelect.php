@@ -35,7 +35,7 @@
       </form>
       <!-- Div where the map will be drawn -->
       <div id="mapDiv">
-        <canvas id="mapCanvas" width="500" height="350"></canvas>
+        <canvas id="mapCanvas" width="600" height="450"></canvas>
 
       <div>
     </section>
