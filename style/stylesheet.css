@@ -65,8 +65,8 @@ section {
 }
 
 #mapDiv {
-  width: 800px;
-  height: 500px;
+  width: 600px;
+  height: 450px;
   background-color: white;
   position: absolute;
   top:-400px;
