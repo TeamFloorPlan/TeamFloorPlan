@@ -76,7 +76,7 @@ function httpGet(urlToGet,getParams)
     }
     else
     {
-      return "Error cannot fetch data";
+      return "Error: cannot fetch data";
     }
 
 }
