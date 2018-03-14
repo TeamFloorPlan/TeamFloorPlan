@@ -24,7 +24,7 @@
       <!--Form contains options for selecting building*/-->
       <form>
         <!--User enters building name -->
-        <input type="text" name="buildingVal" id="buildingVal"/>
+        <input type="text" name="buildingVal" id="buildingVal" value="liongate"/>
         <!-- User enters floor number -->
         <input type="number" name="floor" id="floor" value="0" min="0" max="2" />
         <!-- User enters room id -->
