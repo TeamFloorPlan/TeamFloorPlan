@@ -11,7 +11,7 @@ function displayMap(el) {
   img.src = getBuilding();
   img.onload = function() {
     /*Draws image onto canvas size 500px by 350px*/
-    c.drawImage(img, 0, 0, 500, 350)
+    c.drawImage(img, 0, 0, 800, 500)
   }
 }
 
@@ -50,7 +50,7 @@ function getBuilding() {
   return build;
 }
 
-var testArray = [542,522,542,492];
+var testArray = [0,0,500,350]
 
 function arrayToFirstCoords(roomCoords, coordPoint) {
   var coord = [(roomCoords[coordPoint*2-2]),(roomCoords[coordPoint*2-1])]
@@ -61,16 +61,6 @@ function arrayToSecondCoords(roomCoords, coordPoint) {
   var coord = [(roomCoords[coordPoint*2]),(roomCoords[coordPoint*2+1])]
   return coord;
 }
-
-function httpGet(urlToGet,getParams)
-{
-    urlToGet = urlToGet + getParams;
-    let xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", urlToGet, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
-
 
 function plotArray(el, roomCoords) {
   for (var i=1; i < (roomCoords.length/2)+1; i+=1) {
