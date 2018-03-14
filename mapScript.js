@@ -3,7 +3,7 @@
 /*a function to draw the map to the screen using the canvas module*/
 function displayMap(el) {
   var c = el.getContext("2d");
-  c.clearRect(0, 0, 600, 450);
+  c.clearRect(0, 0, 700, 563);
   c.lineWidth = 5;
   c.strokeStyle = "red";
   c.lineCap = "round";
@@ -11,7 +11,7 @@ function displayMap(el) {
   img.src = getBuilding();
   img.onload = function() {
     /*Draws image onto canvas size 500px by 350px*/
-    c.drawImage(img, 0, 0, 600, 450)
+    c.drawImage(img, 0, 0, 700, 563)
   }
 }
 
