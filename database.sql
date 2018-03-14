@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 13, 2018 at 08:57 PM
+-- Generation Time: Mar 14, 2018 at 02:34 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -21,21 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `floorplanv2`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `array`
---
-
-DROP TABLE IF EXISTS `array`;
-CREATE TABLE IF NOT EXISTS `array` (
-  `arrayID` int(6) NOT NULL AUTO_INCREMENT,
-  `pathID` int(6) NOT NULL,
-  `coordinates` varchar(256) NOT NULL,
-  PRIMARY KEY (`arrayID`),
-  KEY `arrayID` (`pathID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -148,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `path` (
   `entranceID` int(6) DEFAULT NULL,
   `stairID` int(6) DEFAULT NULL,
   `elevatorID` int(6) DEFAULT NULL,
-  `ArrayID` int(6) DEFAULT NULL,
+  `pathCoordinates` varchar(256) NOT NULL,
   PRIMARY KEY (`pathID`),
   KEY `stairID` (`stairID`),
   KEY `entranceID` (`entranceID`),
@@ -188,12 +173,6 @@ CREATE TABLE IF NOT EXISTS `stair` (
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `array`
---
-ALTER TABLE `array`
-  ADD CONSTRAINT `array_ibfk_1` FOREIGN KEY (`pathID`) REFERENCES `path` (`pathID`);
 
 --
 -- Constraints for table `elevator`
