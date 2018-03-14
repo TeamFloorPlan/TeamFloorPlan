@@ -50,7 +50,7 @@ function getBuilding() {
   return build;
 }
 
-var testArray = [0,0,500,350]
+var testArray = [542,522,542,492];
 
 function arrayToFirstCoords(roomCoords, coordPoint) {
   var coord = [(roomCoords[coordPoint*2-2]),(roomCoords[coordPoint*2-1])]
@@ -61,6 +61,26 @@ function arrayToSecondCoords(roomCoords, coordPoint) {
   var coord = [(roomCoords[coordPoint*2]),(roomCoords[coordPoint*2+1])]
   return coord;
 }
+
+function httpGet(urlToGet,getParams)
+{
+    urlToGet = urlToGet + getParams;
+    let httpGetRequest = new XMLHttpRequest();
+    httpGetRequest.open( "GET", urlToGet, false ); // false for synchronous request
+    httpGetRequest.send( null );
+    let responseToGet = httpGetRequest.responseText;
+    let responseStatus = httpGetRequest.status;
+    if(responseToGet != null && responseStatus == 200)
+    {
+      return responseToGet;
+    }
+    else
+    {
+      return "Error cannot fetch data";
+    }
+
+}
+
 
 function plotArray(el, roomCoords) {
   for (var i=1; i < (roomCoords.length/2)+1; i+=1) {
