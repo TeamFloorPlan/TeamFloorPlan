@@ -8,13 +8,13 @@
     <script src="mapScript.js"></script>
   </head>
   <header>
-    <a href="index.html"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.PNG"
+    <a href="index.php"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.PNG"
      alt="Logo"></a>
     <h1>Settings</h1>
       <nav>
         <a id="current_page">Settings</a> |
-        <a href="index.html" aria-label="Navigate to the home page">Home</a> |
-        <a href="buildingSelect.html" aria-label="Navigate to the building select page">Building Select</a> |
+        <a href="index.php" aria-label="Navigate to the home page">Home</a> |
+        <a href="buildingSelect.php" aria-label="Navigate to the building select page">Building Select</a> |
       </nav>
   </header>
   <body>

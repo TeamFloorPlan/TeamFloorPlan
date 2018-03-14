@@ -13,9 +13,9 @@
     <h1>Home</h1>
       <nav>
         <a id="current_page">Home</a> |
-        <a href="login.html" aria-label="Navigate to the sign in page">Login</a> |
-        <a href="buildingSelect.html" aria-label="Navigate to the building select page">Building Select</a> |
-        <a href="settings.html" aria-label="Navigate to the settings page">Settings</a> |
+        <a href="login.php" aria-label="Navigate to the sign in page">Login</a> |
+        <a href="buildingSelect.php" aria-label="Navigate to the building select page">Building Select</a> |
+        <a href="settings.php" aria-label="Navigate to the settings page">Settings</a> |
       </nav>
   </header>
   <body>
@@ -24,7 +24,7 @@
       <div id="homeBanner">
         <p id="bannerMain">UoP Room Finder</p>
         <p id="bannerSub">INSE Project</p>
-        <a href="login.html"><img id="loginBtnHome" src="img/homeLogin.png" width="180px"></a>
+        <a href="login.php"><img id="loginBtnHome" src="img/homeLogin.png" width="180px"></a>
       </div>
       <div id="homeInfo">
         <h2>Why Sign Up?</h2>
