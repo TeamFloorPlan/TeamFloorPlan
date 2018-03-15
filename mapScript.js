@@ -45,6 +45,19 @@ function getBuilding() {
           break;
         }
       break;
+    case "BuckingHam":
+      switch (document.getElementById('floor').value) {
+        case "0":
+          var build="img/BuckingHam/BuckingHamLevel0.svg"
+          break;
+        case "1":
+          var build="img/BuckingHam/BuckingHamLevel1.svg"
+          break;
+        case "2":
+          var build="img/BuckingHam/BuckingHamLevel2.svg"
+          break;
+        }
+        break;
   }
   /*Returns the location of the appropriate image*/
   return build;
