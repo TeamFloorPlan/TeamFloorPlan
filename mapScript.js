@@ -45,7 +45,7 @@ function getBuilding() {
           break;
         }
       break;
-    case "buckingHam":
+    case "buckingham":
       switch (document.getElementById('floor').value) {
         case "0":
           var build="img/BuckingHam/BuckingHamLevel0.svg"
