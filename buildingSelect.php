@@ -20,7 +20,7 @@
   </header>
   <body id="bodyBG" onload="storageRetrieval()">
 
-    <section>
+    <section id="pageBG">
       <!--Form contains options for selecting building*/-->
       <form>
         <!--User enters building name -->
