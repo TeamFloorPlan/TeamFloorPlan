@@ -29,9 +29,11 @@
         <input type="number" name="floor" id="floor" value="0" min="0" max="2" />
         <!-- User enters room id -->
         <input type="text" name="roomVal" id="room" value="0.00">
+
+        
         <!-- Click button to run displayMap function -->
         <input id="mapBtn" type="button" value="Show Map" onclick="displayMap(window.mapCanvas);" />
-        <input id="arrBtn" type="button" value="Plot Array" onclick="plotArray(mapCanvas, testArray)" />
+        <input id="arrBtn" type="button" value="Plot Array" onclick="plotArray(mapCanvas)" />
       </form>
       <!-- Div where the map will be drawn -->
       <div id="mapDiv">

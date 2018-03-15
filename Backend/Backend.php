@@ -15,25 +15,25 @@ print_r(error_get_last());
 
 /*
 TODO:
-	1.Replace redirect placeholders
-	2.Add functionality for confirming emails
-	3.Get database info from George
-	4.Add functionality to get room data from the database
-	5.Add ability to search
-	6.Clean up code. Make it more OOP
+    1.Replace redirect placeholders
+    2.Add functionality for confirming emails
+    3.Get database info from George
+    4.Add functionality to get room data from the database
+    5.Add ability to search
+    6.Clean up code. Make it more OOP
 */
 //echo "egg";
 if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']) && isset($_POST['password']))//If a new user is signing up
 {
    
                 
-                $user = $_POST['username'];			//Get Username
-                $email = $_POST['email'];			//Get Email
-                $password = hash('sha256',($_POST['password']),false);		//Get password and conformation of password hashes
+                $user = $_POST['username'];         //Get Username
+                $email = $_POST['email'];           //Get Email
+                $password = hash('sha256',($_POST['password']),false);      //Get password and conformation of password hashes
                 $cpassword = hash('sha256',($_POST['cpassword']),false);
 
 
-                if($password!=$cpassword)		//Check that passwords are the same
+                if($password!=$cpassword)       //Check that passwords are the same
                 {
                     header("location: ../createAccountForm.php?error=passwordError"); //TODO: Redirect to page telling the user the two passwords aren't the same
                     exit;
@@ -47,7 +47,6 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
                     
                     
                 
-               echo "hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
 
                 if($user == '' || $email == '' || $password == '')
                 {
@@ -189,29 +188,54 @@ if(isset($_POST['Signup']) && isset($_POST['email']) && isset($_POST['username']
     header("post2.html");
 }else if(isset($_GET['roomID']))
 {
+    //SELECT room.roomID FROM room WHERE room.roomName= :roomID
     $roomID = $_GET['roomID'];
-    $result = $conn->prepare("SELECT room.roomID FROM room WHERE room.roomName= :roomID");
+    $buildingName = $_GET['buildingName'];
+    $getFloor = substr($roomID, 0,1);
+    //echo $getFloor;
+    $result = $conn->prepare("SELECT room.roomID FROM room JOIN floor ON room.floorID WHERE room.roomName= :roomID AND floor.floorID= room.floorID AND floor.buildingName= :buildingName ");
     $result->bindParam(':roomID',$roomID);
+    $result->bindParam(':buildingName', $buildingName);
     $result->execute();
 
     $floorNumber = $result->fetchAll();
     foreach($floorNumber as $row)
     {
         echo $row['roomID'];
+        echo ",";
+        echo $getFloor;
     }
 }else if(isset($_GET['pathEntranceID']))
 {
     $roomID = $_GET['roomIDSelect'];
     $pathEntranceID = $_GET['pathEntranceID'];
-    $result = $conn->prepare("SELECT path.pathCoordinates FROM path WHERE path.EntranceID= :pathEntranceID AND path.roomID= :roomID");
-    $result->bindParam(':pathEntranceID',$pathEntranceID);
-    $result->bindParam(':roomID',$roomID);
-    $result->execute();
-    $floorNumber = $result->fetchAll();
-    foreach($floorNumber as $row)
+    $floorNumb = $_GET['floor'];
+    if($floorNumb == 0)
     {
-        echo $row['pathCoordinates'];
+        $result = $conn->prepare("SELECT path.pathCoordinates FROM path WHERE path.EntranceID= :pathEntranceID AND path.roomID= :roomID");
+        $result->bindParam(':pathEntranceID',$pathEntranceID);
+        $result->bindParam(':roomID',$roomID);
+        $result->execute();
+        $floorNumber = $result->fetchAll();
+        foreach($floorNumber as $row)
+        {
+            echo $row['pathCoordinates'];
+
+        }
+    }else{
+        $stairID = 1;
+        $result = $conn->prepare("SELECT path.pathCoordinates FROM path WHERE path.stairID= :stairID AND path.roomID= :roomID");
+        $result->bindParam(':stairID',$stairID);
+        $result->bindParam(':roomID',$roomID);
+        $result->execute();
+        $floorNumber = $result->fetchAll();
+        foreach($floorNumber as $row)
+        {
+            echo $row['pathCoordinates'];
+
+        }
     }
+    
 }
 
 

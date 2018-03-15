@@ -81,8 +81,16 @@ function httpGet(urlToGet,getParams)
 
 }
 
-
-function plotArray(el, roomCoords) {
+function plotArray(el) {
+  
+  let buildingNameFromBox = document.getElementById('buildingVal').value;
+  let roomNumberFromBox = document.getElementById('room').value;
+  let buildRequest = "?roomID=" + roomNumberFromBox + "&buildingName="+buildingNameFromBox;
+  let roomIDFromDatabase = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/Backend.php",buildRequest);
+  let [roomIDSplit,floorNumber] = roomIDFromDatabase.split(',');
+  buildRequest = "?pathEntranceID=1&roomIDSelect=" + roomIDSplit + "&floor=" + floorNumber;
+  let arrayOfData = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/Backend.php",buildRequest);
+  let roomCoords = arrayOfData.split(',').map(Number);
   for (var i=1; i < (roomCoords.length/2)+1; i+=1) {
     var c = el.getContext("2d");
     c.beginPath();
@@ -91,6 +99,7 @@ function plotArray(el, roomCoords) {
     c.stroke();
   }
 }
+
 
 function changeLT () {
   var navFont = document.getElementById("navArea");
