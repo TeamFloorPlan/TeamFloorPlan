@@ -41,6 +41,11 @@ nav a:hover{
 }
 
 
+#logout{
+  right: 0;
+  margin-left: 66.5%
+}
+
 #current_page{
   color: #2EE3FF;
 }

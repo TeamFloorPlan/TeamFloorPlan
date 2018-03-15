@@ -13,6 +13,7 @@
       <nav>
         <a id="current_page">Sign up/Login</a> |
         <a href="index.php" aria-label="Navigate to the start page">Home</a> |
+        <a id="logout" href="logout.php" aria-label="Logout from your account">Logout</a>
       </nav>
   </header>
   <body>
@@ -48,7 +49,7 @@
          if(isset($_GET['error']))
          {
             $error = $_GET['error'];
-         
+
 
          if($error == "errorUsernameTaken")
          {

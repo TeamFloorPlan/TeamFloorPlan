@@ -16,7 +16,9 @@
         <a id="current_page">Building Select</a> |
         <a href="index.php" aria-label="Navigate to the home page">Home</a> |
         <a href="settings.php" aria-label="Navigate to the settings page">Settings</a> |
+        <a id="logout" href="logout.php" aria-label="Logout from your account">Logout</a>
       </nav>
+
   </header>
   <body id="bodyBG" onload="storageRetrieval()">
 
@@ -37,8 +39,6 @@
         <!-- Click button to run displayMap function -->
         <input id="mapBtn" type="button" value="Show Map" onclick="displayMap(window.mapCanvas);" />
         <input id="arrBtn" type="button" value="Plot Array" onclick="plotArray(mapCanvas)" />
-        <input id="legacy" type="button" value="ayy" onclick="legacyDraw(window.mapCanvas,testArray);">
-
       </form>
       <!-- Div where the map will be drawn -->
       <div id="mapDiv">
