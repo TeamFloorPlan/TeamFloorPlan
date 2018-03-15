@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style/stylesheet.css">
     <script src="mapScript.js"></script>
   </head>
-  <header>
+  <header id="headBG">
     <a href="index.php"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.PNG"
      alt="Logo"></a>
     <h1>Settings</h1>
@@ -17,13 +17,14 @@
         <a href="buildingSelect.php" aria-label="Navigate to the building select page">Building Select</a> |
       </nav>
   </header>
-  <body onload="storageRetrieval()">
+  <body id="bodyBG" onload="storageRetrieval()">
 
-    <section>
+    <section id="pageBG">
       <form id="settingsMenu">
         <input type="checkbox" id="cb" onclick="changeCB()" name="colourblind" value="colourblind">    Enable Colourblind Mode<br>
         <input type="checkbox" id="lt" onclick="changeLT()" name="largeText" value="largeText">    Enable Large Font<br>
       </form>
+      <br><br><br><br><br><br><br><br><br><br><br><br>
     </section>
 
   </body>

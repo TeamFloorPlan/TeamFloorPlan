@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style/stylesheet.css">
     <script src="mapScript.js"></script>
   </head>
-  <header>
+  <header id="headBG">
     <a href="index.html"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.png"
      alt="Logo"></a>
     <h1>Home</h1>
@@ -18,9 +18,9 @@
         <a href="settings.php" aria-label="Navigate to the settings page">Settings</a> |
       </nav>
   </header>
-  <body onload="storageRetrieval()">
+  <body id="bodyBG" onload="storageRetrieval()">
 
-    <section>
+    <section id="pageBG">
       <div id="homeBanner">
         <p id="bannerMain">UoP Room Finder</p>
         <p id="bannerSub">INSE Project</p>

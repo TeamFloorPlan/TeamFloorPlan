@@ -82,7 +82,7 @@ function httpGet(urlToGet,getParams)
 }
 
 function plotArray(el) {
-  
+
   let buildingNameFromBox = document.getElementById('buildingVal').value;
   let roomNumberFromBox = document.getElementById('room').value;
   let buildRequest = "?roomID=" + roomNumberFromBox + "&buildingName="+buildingNameFromBox;
@@ -113,20 +113,34 @@ function changeLT () {
 }
 
 function changeCB () {
-  var navFont = document.getElementById("navArea");
+  var pageBG = document.getElementById("pageBG");
+  var navBG = document.getElementById("navArea");
+  var bodyBG = document.getElementById("bodyBG");
+  var headBG = document.getElementById("headBG");
   if(document.getElementById("cb").checked) {
-    navFont.style.fontSize = "1.8em";
+    pageBG.style.backgroundColor = "#000000";
+    navBG.style.backgroundColor = "#000000";
+    bodyBG.style.background = "#000000";
+    headBG.style.background = "#FFF";
+    pageBG.style.color = "#FFFFFF";
     localStorage.setItem('cb', true);
   } else {
-    navFont.style.fontSize = "1em";
+    pageBG.style.backgroundColor = "#FFFFFF";
+    navBG.style.backgroundColor = "#1E73AC";
+    bodyBG.style.background = "linear-gradient(to right, #009fe3 0%,#009fe3 50%, 50%, #621361 50%, #621361 100%)";
+    pageBG.style.color = "#000000";
+    headBG.style.background = "#e9e9e9";
     localStorage.setItem('cb', false);
   }
 }
 
 function storageRetrieval() {
   var navFont = document.getElementById("navArea");
+  var pageBG = document.getElementById("pageBG");
+  var navBG = document.getElementById("navArea");
+  var bodyBG = document.getElementById("bodyBG");
+  var headBG = document.getElementById("headBG");
   var ltChecked = localStorage.getItem('lt');
-  console.log(localStorage.getItem('lt'))
   if(ltChecked == "true") {
     if (document.URL.indexOf("settings.php") >= 0) {
       document.getElementById("lt").checked = true;
@@ -140,11 +154,23 @@ function storageRetrieval() {
   }
 
   var cbChecked = localStorage.getItem('cb');
-  console.log(localStorage.getItem('cb'))
   if(cbChecked == "true") {
-    document.getElementById("cb").checked = true;
+    if (document.URL.indexOf("settings.php") >= 0) {
+      document.getElementById("cb").checked = true;
+    }
+    pageBG.style.backgroundColor = "#000000";
+    pageBG.style.color = "#FFFFFF";
+    navBG.style.backgroundColor = "#000000";
+    bodyBG.style.background = "#000000";
+    headBG.style.background = "#FFF";
   } else {
-    document.getElementById("cb").checked = false;
+    if (document.URL.indexOf("settings.php") >= 0) {
+      document.getElementById("cb").checked = false;
+    }
+    pageBG.style.backgroundColor = "#FFFFFF";
+    pageBG.style.color = "#000000";
+    navBG.style.backgroundColor = "#1E73AC";
+    bodyBG.style.background = "linear-gradient(to right, #009fe3 0%,#009fe3 50%, 50%, #621361 50%, #621361 100%)";
+    headBG.style.background = "#e9e9e9";
   }
-
 }

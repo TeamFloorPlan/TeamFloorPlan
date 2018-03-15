@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style/stylesheet.css">
     <script src="mapScript.js"></script>
   </head>
-  <header>
+  <header id="headBG">
     <a href="index.php"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.PNG"
      alt="Logo"></a>
     <h1>Building Select</h1>
@@ -18,9 +18,9 @@
         <a href="settings.php" aria-label="Navigate to the settings page">Settings</a> |
       </nav>
   </header>
-  <body onload="storageRetrieval()">
+  <body id="bodyBG" onload="storageRetrieval()">
 
-    <section>
+    <section id="pageBG">
       <!--Form contains options for selecting building*/-->
       <form>
         <!--User enters building name -->
@@ -30,7 +30,7 @@
         <!-- User enters room id -->
         <input type="text" name="roomVal" id="room" value="0.00">
 
-        
+
         <!-- Click button to run displayMap function -->
         <input id="mapBtn" type="button" value="Show Map" onclick="displayMap(window.mapCanvas);" />
         <input id="arrBtn" type="button" value="Plot Array" onclick="plotArray(mapCanvas)" />
