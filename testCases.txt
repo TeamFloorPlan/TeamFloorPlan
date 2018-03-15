@@ -1,0 +1,37 @@
+
+Test ID	Test Area	Test Data	Expected Result	Actual Result	Comments
+1	Room Entry Box	(String) roomTest	Error: Invalid Room Number
+2	Room Entry Box	(Int) 7	Error: Invalid Room Number
+3	Room Entry Box	(Float) 0.07	Success
+4	Floor Entry Spinner	(Int) 10	Unable to enter digits above 2 or below 0
+5	Floor Entry Spinner	(Int) -5	Unable to enter digits below 2 or above 0
+6	Floor Entry Spinner	(Char) e	Unable to enter non-integers
+7	Floor Entry Spinner	(Float) 0.5	Unable to enter non-integers
+8	Floor Entry Spinner	(Int) 1	Success
+9	Entrance Select Box	(String) entranceTest	Error: Invalid Entrance
+10	Entrance Select Box	(Int) 4	Error: Invalid Entrance
+11	Entrance Select Box	(Int) -1	Error: Invalid Entrance
+12	Entrance Select Box	(Float) 0.5	Error: Invalid Entrance
+13	Entrance Select Box	(Int) 1	Success
+14	Username Entry Box	(Non-user value) fakeUser	Error: Invalid Username
+15	Username Entry Box	(User Value) realUser	Success
+16	Password Entry Box	(Incorrect Value) wrongPass	Error: Invalid Password
+17	Password Entry Box	(Correct Value) correctPass	Success
+18	First name Entry Box	(Int) 50	Error: Please Enter a Valid Name
+19	First name Entry Box	(Float) 0.5	Error: Please Enter a Valid Name
+20	First name Entry Box	(Digit) @	Error: Please Enter a Valid Name
+21	First name Entry Box	(String) testName	Success
+22	Last name Entry Box	(Int) 50	Error: Please Enter a Valid Name
+23	Last name Entry Box	(Float) 0.5	Error: Please Enter a Valid Name
+24	Last name Entry Box	(Digit) @	Error: Please Enter a Valid Name
+25	Last name Entry Box	(String) testName	Success
+26	New Username Entry Box	(Already Taken Username) takenUser	Error: Username already in user
+27	New Username Entry Box	(Unique Username) newUser	Success
+28	New Password Entry Box	(String) cat	Error: Password must be more than 4 characters
+29	New Password Entry Box	(String) goodPass123	Success
+30	Password Confirmation Box	(Value Different From Previous Password) notCorrectPass	Error: Passwords do not match
+31	Password Confirmation Box	(Value Same As Previous Password) goodPass123	Success
+32	Email Entry Box	(Int) 650	Error: Invalid Email Address
+33	Email Entry Box	(Float) 5.8	Error: Invalid Email Address
+34	Email Entry Box	(String) notAnEmail	Error: Invalid Email Address
+35	Email Entry Box	(String) good@one.com	Success
