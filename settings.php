@@ -15,6 +15,7 @@
         <a id="current_page">Settings</a> |
         <a href="index.php" aria-label="Navigate to the home page">Home</a> |
         <a href="buildingSelect.php" aria-label="Navigate to the building select page">Building Select</a> |
+        <a id="logout" href="logout.php" aria-label="Logout from your account">Logout</a>
       </nav>
   </header>
   <body id="bodyBG" onload="storageRetrieval()">

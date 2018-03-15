@@ -16,6 +16,7 @@
         <a href="login.php" aria-label="Navigate to the sign in page">Login</a> |
         <a href="buildingSelect.php" aria-label="Navigate to the building select page">Building Select</a> |
         <a href="settings.php" aria-label="Navigate to the settings page">Settings</a> |
+        <a id="logout" href="logout.php" aria-label="Logout from your account">Logout</a>
       </nav>
   </header>
   <body id="bodyBG" onload="storageRetrieval()">
