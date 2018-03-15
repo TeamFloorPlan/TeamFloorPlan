@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.1767767"
-     inkscape:cx="2743.4585"
-     inkscape:cy="2397.6393"
+     inkscape:zoom="0.70710681"
+     inkscape:cx="3760.6575"
+     inkscape:cy="794.15549"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1856,17 +1856,6 @@
        d="m 1072.6208,141.55727 24.2094,0.0661 v -0.0661"
        id="path10779"
        inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:11.28888893px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-miterlimit:4;stroke-dasharray:none"
-       x="1069.4458"
-       y="82.422882"
-       id="text10783"><tspan
-         sodipodi:role="line"
-         id="tspan10781"
-         x="1069.4458"
-         y="82.422882"
-         style="font-size:14.11111069px;stroke-width:2.1;stroke-miterlimit:4;stroke-dasharray:none">1.68</tspan></text>
     <rect
        style="fill:#bebebe;fill-opacity:1;stroke:#000000;stroke-width:2.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4612-25-0-6-8"
@@ -2480,5 +2469,17 @@
          d="m 153.55387,88.933331 -0.99515,47.595429 v 0 0 l -37.6592,-0.0104 v 0 0"
          style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:5.87416433;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:17.54502678px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.41121155"
+       x="1109.6151"
+       y="80.218048"
+       id="text5789"
+       transform="scale(0.96369563,1.037672)"><tspan
+         sodipodi:role="line"
+         id="tspan5787"
+         x="1109.6151"
+         y="80.218048"
+         style="stroke-width:0.41121155">2.67</tspan></text>
   </g>
 </svg>
