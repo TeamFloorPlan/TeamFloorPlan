@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.50000001"
-     inkscape:cx="1200.5139"
-     inkscape:cy="305.69227"
+     inkscape:zoom="1"
+     inkscape:cx="1109.5282"
+     inkscape:cy="3314.8409"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -226,31 +226,16 @@
        y="-8.1029253" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:17.82362747px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.07095957;stroke-miterlimit:4;stroke-dasharray:none"
-       x="175.51224"
-       y="40.003155"
+       style="font-style:normal;font-weight:normal;font-size:31.53477669px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.43335104;stroke-miterlimit:4;stroke-dasharray:none"
+       x="167.99977"
+       y="91.29705"
        id="text4904"
-       transform="scale(0.85235354,1.1732221)"><tspan
+       transform="scale(0.96939004,1.0315765)"><tspan
          sodipodi:role="line"
-         id="tspan4902"
-         x="175.51224"
-         y="40.003155"
-         style="stroke-width:3.07095957;stroke-miterlimit:4;stroke-dasharray:none">0.41</tspan><tspan
-         sodipodi:role="line"
-         x="175.51224"
-         y="62.282688"
-         style="stroke-width:3.07095957;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan4908">South</tspan><tspan
-         sodipodi:role="line"
-         x="175.51224"
-         y="84.562225"
-         style="stroke-width:3.07095957;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan4912">Lecture</tspan><tspan
-         sodipodi:role="line"
-         x="175.51224"
-         y="106.84176"
-         style="stroke-width:3.07095957;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan4136">Theatre</tspan></text>
+         x="167.99977"
+         y="91.29705"
+         style="stroke-width:5.43335104;stroke-miterlimit:4;stroke-dasharray:none"
+         id="tspan4136">0.41</tspan></text>
     <g
        id="g4730-8"
        transform="matrix(0,-0.49639242,0.46294223,0,205.5784,74.999967)"
@@ -764,36 +749,16 @@
        y="136.69839" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:29.60907936px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.85926843;stroke-miterlimit:4;stroke-dasharray:none"
-       x="82.858009"
-       y="-302.39371"
+       style="font-style:normal;font-weight:normal;font-size:48.33810806px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:6.30042362;stroke-miterlimit:4;stroke-dasharray:none"
+       x="99.66217"
+       y="-154.66705"
        id="text2628"
-       transform="scale(1.0278328,0.97292086)"><tspan
+       transform="scale(0.87317358,1.1452477)"><tspan
          sodipodi:role="line"
-         id="tspan2626"
-         x="82.858009"
-         y="-302.39371"
-         style="stroke-width:3.85926843;stroke-miterlimit:4;stroke-dasharray:none">0.34</tspan><tspan
-         sodipodi:role="line"
-         x="82.858009"
-         y="-265.38235"
-         style="stroke-width:3.85926843;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan3308">IS</tspan><tspan
-         sodipodi:role="line"
-         x="82.858009"
-         y="-228.371"
-         style="stroke-width:3.85926843;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan2632">Open</tspan><tspan
-         sodipodi:role="line"
-         x="82.858009"
-         y="-191.35966"
-         style="stroke-width:3.85926843;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan2636">Access</tspan><tspan
-         sodipodi:role="line"
-         x="82.858009"
-         y="-154.34831"
-         style="stroke-width:3.85926843;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan3130">Suite</tspan></text>
+         x="99.66217"
+         y="-154.66705"
+         style="stroke-width:6.30042362;stroke-miterlimit:4;stroke-dasharray:none"
+         id="tspan3130">0.34</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.0999999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4999-2-0"
@@ -1453,31 +1418,16 @@
        y="-475.26981" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:15.89369011px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:3.42873883;stroke-miterlimit:4;stroke-dasharray:none"
-       x="74.486633"
-       y="-553.15851"
+       style="font-style:normal;font-weight:normal;font-size:37.62685776px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:8.11722565;stroke-miterlimit:4;stroke-dasharray:none"
+       x="64.293655"
+       y="-506.97821"
        id="text2605"
-       transform="scale(0.97447128,1.0261975)"><tspan
+       transform="scale(0.97521037,1.0254198)"><tspan
          sodipodi:role="line"
-         id="tspan2603"
-         x="74.486633"
-         y="-553.15851"
-         style="stroke-width:3.42873883;stroke-miterlimit:4;stroke-dasharray:none">0.28</tspan><tspan
-         sodipodi:role="line"
-         x="74.486633"
-         y="-533.29138"
-         style="stroke-width:3.42873883;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan2607">North</tspan><tspan
-         sodipodi:role="line"
-         x="74.486633"
-         y="-513.42426"
-         style="stroke-width:3.42873883;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan2611">Lecture </tspan><tspan
-         sodipodi:role="line"
-         x="74.486633"
-         y="-493.55716"
-         style="stroke-width:3.42873883;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan2609">theatre</tspan></text>
+         x="64.293655"
+         y="-506.97821"
+         style="stroke-width:8.11722565;stroke-miterlimit:4;stroke-dasharray:none"
+         id="tspan2609">0.28</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.0999999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4999-2-00-2"
@@ -2042,21 +1992,16 @@
          style="stroke-width:2.88784671;stroke-miterlimit:4;stroke-dasharray:none">0.07</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:25.28727531px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.21542215;stroke-miterlimit:4;stroke-dasharray:none"
-       x="380.27893"
-       y="-613.80914"
+       style="font-style:normal;font-weight:normal;font-size:61.55687332px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:12.69591427;stroke-miterlimit:4;stroke-dasharray:none"
+       x="441.21323"
+       y="-576.64551"
        id="text3256"
-       transform="scale(0.94971384,1.0529487)"><tspan
+       transform="scale(0.935793,1.0686124)"><tspan
          sodipodi:role="line"
-         id="tspan3254"
-         x="380.27893"
-         y="-613.80914"
-         style="stroke-width:5.21542215;stroke-miterlimit:4;stroke-dasharray:none">0.17</tspan><tspan
-         sodipodi:role="line"
-         x="380.27893"
-         y="-582.20007"
-         style="stroke-width:5.21542215;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan3258">Hydraulics Laboratory</tspan></text>
+         x="441.21323"
+         y="-576.64551"
+         style="stroke-width:12.69591427;stroke-miterlimit:4;stroke-dasharray:none"
+         id="tspan3258">0.17</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.0999999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4612-25-0"
@@ -2676,5 +2621,38 @@
          d="m 153.55387,88.933331 -0.99515,47.595429 v 0 0 l -37.6592,-0.0104 v 0 0"
          style="fill:none;stroke:#000000;stroke-width:4.50686598;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
+    <g
+       id="g4730-6-9-28-4-0-1"
+       transform="matrix(0,-0.45530161,0.47685915,0,203.94094,179.15209)"
+       style="stroke-width:4.50686598;stroke-miterlimit:4;stroke-dasharray:none">
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4724-4-0-2-6-05-9"
+         d="m 114.89952,136.51839 c -0.90848,-19.99226 -4.03775,-42.217648 38.65812,-47.576409"
+         style="fill:none;stroke:#000000;stroke-width:4.50686598;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4726-0-9-4-1-7-6"
+         d="m 153.55387,88.933331 -0.99515,47.595429 v 0 0 l -37.6592,-0.0104 v 0 0"
+         style="fill:none;stroke:#000000;stroke-width:4.50686598;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.6058979px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.29545072"
+       x="274.5874"
+       y="-644.29047"
+       id="text10379"
+       transform="scale(0.99054684,1.0095434)"><tspan
+         sodipodi:role="line"
+         x="274.5874"
+         y="-644.29047"
+         style="stroke-width:0.29545072"
+         id="tspan10381">Disabled</tspan><tspan
+         sodipodi:role="line"
+         x="274.5874"
+         y="-628.53308"
+         style="stroke-width:0.29545072"
+         id="tspan10385">Toilets</tspan></text>
   </g>
 </svg>
