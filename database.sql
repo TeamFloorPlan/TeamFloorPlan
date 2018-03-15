@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 15, 2018 at 02:07 PM
+-- Generation Time: Mar 15, 2018 at 07:40 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS `building` (
 --
 
 INSERT INTO `building` (`buildingName`, `buildingNumberOfEntrances`, `buildingNumberOfFloors`) VALUES
-('Liongate', 2, 2),
-('Portland', 3, 4);
+('Buckingham', 3, 1),
+('Liongate', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -60,14 +60,15 @@ CREATE TABLE IF NOT EXISTS `elevator` (
   `elevatorEndFloor` int(6) NOT NULL,
   PRIMARY KEY (`elevatorID`),
   KEY `elevatorFK01` (`floorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `elevator`
 --
 
 INSERT INTO `elevator` (`elevatorID`, `floorID`, `elevatorStartFloor`, `elevatorEndFloor`) VALUES
-(1, 2, 0, 2);
+(1, 2, 0, 2),
+(2, 12, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `entrance` (
   `entranceDisabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`entranceID`),
   KEY `EntranceFK01` (`floorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `entrance`
@@ -90,7 +91,10 @@ CREATE TABLE IF NOT EXISTS `entrance` (
 
 INSERT INTO `entrance` (`entranceID`, `floorID`, `entranceDisabled`) VALUES
 (1, 2, 1),
-(2, 2, 1);
+(2, 2, 1),
+(3, 12, 1),
+(4, 12, 1),
+(5, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -105,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `floor` (
   `floorNumber` int(6) NOT NULL,
   PRIMARY KEY (`floorID`),
   KEY `buildingName` (`buildingName`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `floor`
@@ -115,10 +119,8 @@ INSERT INTO `floor` (`floorID`, `buildingName`, `floorNumber`) VALUES
 (2, 'Liongate', 0),
 (3, 'Liongate', 1),
 (4, 'Liongate', 2),
-(8, 'Portland', 0),
-(9, 'Portland', 1),
-(10, 'Portland', 2),
-(11, 'Portland', 3);
+(12, 'Buckingham', 0),
+(13, 'Buckingham', 1);
 
 -- --------------------------------------------------------
 
@@ -280,7 +282,7 @@ CREATE TABLE IF NOT EXISTS `room` (
   `roomName` varchar(10) NOT NULL,
   PRIMARY KEY (`roomID`),
   KEY `RoomFK01` (`floorID`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `room`
@@ -316,7 +318,58 @@ INSERT INTO `room` (`roomID`, `floorID`, `roomName`) VALUES
 (28, 4, '2.04b'),
 (29, 4, '2.04c'),
 (30, 4, '2.05'),
-(31, 4, '2.06');
+(31, 4, '2.06'),
+(32, 12, '0.01'),
+(33, 12, '0.05'),
+(34, 12, '0.06'),
+(35, 12, '0.07'),
+(36, 12, '0.08'),
+(37, 12, '0.11'),
+(38, 12, '0.12a'),
+(39, 12, '0.12b'),
+(40, 12, '0.14'),
+(41, 12, '0.15'),
+(42, 12, '0.16'),
+(43, 12, '0.19'),
+(44, 12, '0.20'),
+(45, 12, ''),
+(46, 13, '1.01'),
+(47, 13, '1.03'),
+(48, 13, '1.04'),
+(49, 13, '1.08'),
+(50, 13, '1.09'),
+(51, 13, '1.10'),
+(52, 13, '1.11'),
+(53, 13, '1.12'),
+(54, 13, '1.13'),
+(55, 13, '1.14'),
+(56, 13, '1.15'),
+(57, 13, '1.17'),
+(58, 13, '1.18'),
+(59, 13, '1.19'),
+(60, 13, '1.20'),
+(61, 13, '1.21'),
+(62, 13, '1.22'),
+(63, 13, '1.23'),
+(64, 13, '1.24'),
+(65, 13, '1.25'),
+(66, 13, '1.26'),
+(67, 13, '1.27'),
+(68, 13, '1.28'),
+(69, 13, '1.29'),
+(70, 13, '1.30'),
+(71, 13, '1.31'),
+(72, 13, '1.32'),
+(73, 13, '1.33'),
+(74, 13, '1.34'),
+(75, 13, '1.35'),
+(76, 13, '1.36'),
+(77, 13, '1.37'),
+(78, 13, '1.38'),
+(79, 13, '1.39'),
+(80, 13, '1.40a'),
+(81, 13, '1.40b'),
+(82, 13, '1.41');
 
 -- --------------------------------------------------------
 
@@ -332,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `stair` (
   `stairEndFloor` int(6) NOT NULL,
   PRIMARY KEY (`stairsID`),
   KEY `StairsFK01` (`floorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `stair`
@@ -340,7 +393,9 @@ CREATE TABLE IF NOT EXISTS `stair` (
 
 INSERT INTO `stair` (`stairsID`, `floorID`, `stairStartFloor`, `stairEndFloor`) VALUES
 (1, 2, 0, 2),
-(2, 2, 0, 2);
+(2, 2, 0, 2),
+(3, 12, 0, 1),
+(4, 12, 0, 1);
 
 --
 -- Constraints for dumped tables
