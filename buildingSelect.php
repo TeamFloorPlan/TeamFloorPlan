@@ -37,6 +37,8 @@
         <!-- Click button to run displayMap function -->
         <input id="mapBtn" type="button" value="Show Map" onclick="displayMap(window.mapCanvas);" />
         <input id="arrBtn" type="button" value="Plot Array" onclick="plotArray(mapCanvas)" />
+        <input id="legacy" type="button" value="ayy" onclick="legacyDraw(window.mapCanvas,testArray);">
+
       </form>
       <!-- Div where the map will be drawn -->
       <div id="mapDiv">

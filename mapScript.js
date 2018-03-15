@@ -101,10 +101,10 @@ function plotArray(el) {
   let entranceNumber = document.getElementById('entrance').value;
   let disabled = document.getElementById('disabled').checked;
   let buildRequest = "?roomID=" + roomNumberFromBox + "&buildingName="+buildingNameFromBox;
-  let roomIDFromDatabase = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/Backend.php",buildRequest);
+  let roomIDFromDatabase = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/BackendFunctional.php",buildRequest);
   let [roomIDSplit,floorNumber] = roomIDFromDatabase.split(',');
   buildRequest = "?pathEntranceID="+entranceNumber+"&roomIDSelect=" + roomIDSplit + "&floor=" + floorNumber + "&disabled=" + disabled;
-  let arrayOfData = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/Backend.php",buildRequest);
+  let arrayOfData = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/BackendFunctional.php",buildRequest);
   let roomCoords = arrayOfData.split(',').map(Number);
   for (var i=1; i < (roomCoords.length/2)+1; i+=1) {
     var c = el.getContext("2d");
@@ -114,6 +114,17 @@ function plotArray(el) {
     c.stroke();
   }
 }
+
+function legacyDraw(el,roomCoords){
+  for (var i=1; i < (roomCoords.length/2)+1; i+=1) {
+    var c = el.getContext("2d");
+    c.beginPath();
+    c.moveTo(arrayToFirstCoords(roomCoords,i)[0],arrayToFirstCoords(roomCoords,i)[1]);
+    c.lineTo(arrayToSecondCoords(roomCoords,i)[0],arrayToSecondCoords(roomCoords,i)[1]);
+    c.stroke();
+  }
+}
+
 
 function getFloorNum(roomNumber){
   return roomNumber.charAt(0);
