@@ -12,12 +12,12 @@
     <h1>Homepage</h1>
       <nav>
         <a id="current_page">Sign up/Login</a> |
-        <a href="index.html" aria-label="Navigate to the start page">Home</a> |
+        <a href="index.php" aria-label="Navigate to the start page">Home</a> |
       </nav>
   </header>
   <body>
     <section>
-    <form action="/TeamFloorPlan/Backend/Backend.php" method="post">
+    <form action="/TeamFloorPlan/Backend/BackendFunctional.php" method="post">
       <br>
        <fieldset id="fieldsetid">
          <legend id="legendid">Personal information:</legend>

@@ -8,7 +8,7 @@
     <script src="mapScript.js"></script>
   </head>
   <header id="headBG">
-    <a href="index.html"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.png"
+    <a href="index.php"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.png"
      alt="Logo"></a>
     <h1>Home</h1>
       <nav id="navArea">

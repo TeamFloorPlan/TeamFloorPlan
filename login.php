@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="style/stylesheet.css">
   </head>
   <header>
-    <a href="index.html"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.PNG"
+    <a href="index.php"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.PNG"
      alt="Logo"></a>
     <h1>Login</h1>
       <nav>
         <a id="current_page">Login</a> |
-        <a href="index.html" aria-label="Navigate to the start page">Home</a> |
+        <a href="index.php" aria-label="Navigate to the start page">Home</a> |
       </nav>
   </header>
   <body>
     <section>
-    <form action="/TeamFloorPlan/Backend/Backend.php" method="post">
+    <form action="/TeamFloorPlan/Backend/BackendFunctional.php" method="post">
       <br>
       <fieldset id="fieldsetid">
         <legend id="legendid">Login</legend>
@@ -27,7 +27,7 @@
          <!-- <p class="FormTitle">Password:</p> -->
          <input type="password" name="password" placeholder="Password"  class="EmailPass">
          <?php
-          include("/Backend/Backend.php");
+          include("/Backend/BackendFunctional.php");
           if(isset($_SESSION['user']))
           {
             header("location: buildingSelect.php");
@@ -45,7 +45,7 @@
        </form>
        <br>
        
-       <a href="createAccountForm.html" style="text-decoration:none;">Don't have one? Sign up now</a>
+       <a href="createAccountForm.php" style="text-decoration:none;">Don't have one? Sign up now</a>
        </section>
        </body>
      </html>
