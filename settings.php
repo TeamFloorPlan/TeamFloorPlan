@@ -11,18 +11,18 @@
     <a href="index.php"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.PNG"
      alt="Logo"></a>
     <h1>Settings</h1>
-      <nav>
+      <nav id="navArea">
         <a id="current_page">Settings</a> |
         <a href="index.php" aria-label="Navigate to the home page">Home</a> |
         <a href="buildingSelect.php" aria-label="Navigate to the building select page">Building Select</a> |
       </nav>
   </header>
-  <body>
+  <body onload="storageRetrieval()">
 
     <section>
       <form id="settingsMenu">
-        <input type="checkbox" name="colourblind" value="colourblind">    Enable Colourblind Mode<br>
-        <input type="checkbox" name="largeText" value="largeText">    Enable Large Font<br>
+        <input type="checkbox" id="cb" onclick="changeCB()" name="colourblind" value="colourblind">    Enable Colourblind Mode<br>
+        <input type="checkbox" id="lt" onclick="changeLT()" name="largeText" value="largeText">    Enable Large Font<br>
       </form>
     </section>
 

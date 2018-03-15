@@ -91,3 +91,51 @@ function plotArray(el, roomCoords) {
     c.stroke();
   }
 }
+
+function changeLT () {
+  var navFont = document.getElementById("navArea");
+  if(document.getElementById("lt").checked) {
+    navFont.style.fontSize = "1.8em";
+    localStorage.setItem('lt', true);
+  } else {
+    navFont.style.fontSize = "1em";
+    localStorage.setItem('lt', false);
+  }
+}
+
+function changeCB () {
+  var navFont = document.getElementById("navArea");
+  if(document.getElementById("cb").checked) {
+    navFont.style.fontSize = "1.8em";
+    localStorage.setItem('cb', true);
+  } else {
+    navFont.style.fontSize = "1em";
+    localStorage.setItem('cb', false);
+  }
+}
+
+function storageRetrieval() {
+  var navFont = document.getElementById("navArea");
+  var ltChecked = localStorage.getItem('lt');
+  console.log(localStorage.getItem('lt'))
+  if(ltChecked == "true") {
+    if (document.URL.indexOf("settings.php") >= 0) {
+      document.getElementById("lt").checked = true;
+    }
+    navFont.style.fontSize = "1.8em";
+  } else {
+    if (document.URL.indexOf("settings.php") >= 0) {
+      document.getElementById("lt").checked = false;
+    }
+    navFont.style.fontSize = "1em";
+  }
+
+  var cbChecked = localStorage.getItem('cb');
+  console.log(localStorage.getItem('cb'))
+  if(cbChecked == "true") {
+    document.getElementById("cb").checked = true;
+  } else {
+    document.getElementById("cb").checked = false;
+  }
+
+}

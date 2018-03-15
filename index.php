@@ -11,14 +11,14 @@
     <a href="index.html"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.png"
      alt="Logo"></a>
     <h1>Home</h1>
-      <nav>
+      <nav id="navArea">
         <a id="current_page">Home</a> |
         <a href="login.php" aria-label="Navigate to the sign in page">Login</a> |
         <a href="buildingSelect.php" aria-label="Navigate to the building select page">Building Select</a> |
         <a href="settings.php" aria-label="Navigate to the settings page">Settings</a> |
       </nav>
   </header>
-  <body>
+  <body onload="storageRetrieval()">
 
     <section>
       <div id="homeBanner">
