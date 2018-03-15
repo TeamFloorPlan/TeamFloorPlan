@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style/stylesheet.css">
     <script src="mapScript.js"></script>
   </head>
-  <header>
+  <header id="headBG">
     <a href="index.php"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.PNG"
      alt="Logo"></a>
     <h1>Building Select</h1>
@@ -18,7 +18,7 @@
         <a href="settings.php" aria-label="Navigate to the settings page">Settings</a> |
       </nav>
   </header>
-  <body onload="storageRetrieval()">
+  <body id="bodyBG" onload="storageRetrieval()">
 
     <section>
       <!--Form contains options for selecting building*/-->
