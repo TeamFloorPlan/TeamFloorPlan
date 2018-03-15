@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="1109.5282"
-     inkscape:cy="3314.8409"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="1964.2145"
+     inkscape:cy="3105.4182"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -816,12 +816,12 @@
          y="-198.742"
          style="stroke-width:2.0999999;stroke-miterlimit:4;stroke-dasharray:none">Cafe</tspan></text>
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.0999999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.08786845;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4610-4-6-6"
-       width="180.99605"
-       height="111.93405"
-       x="540.84753"
-       y="379.91434"
+       width="178.89151"
+       height="111.94618"
+       x="542.95813"
+       y="379.90826"
        transform="scale(1,-1)" />
     <g
        id="g4730-6-9-9"
@@ -1917,7 +1917,7 @@
        y="-537.50134" />
     <g
        id="g4730-6-9-28-4-7-1-1-8-7"
-       transform="matrix(-0.37481994,0,0,0.38029989,685.1418,-588.73775)"
+       transform="matrix(-0.37481994,0,0,0.38029989,685.1418,-589.26692)"
        style="fill:#bebebe;fill-opacity:1;stroke-width:5.56217766;stroke-miterlimit:4;stroke-dasharray:none">
       <path
          sodipodi:nodetypes="cc"
@@ -1933,7 +1933,7 @@
     </g>
     <g
        id="g4730-6-9-28-4-7-1-1-8-8"
-       transform="matrix(-0.37481994,0,0,-0.38029989,645.9397,-486.2948)"
+       transform="matrix(-0.37481994,0,0,-0.38029989,645.9397,-485.76563)"
        style="fill:#ffffff;fill-opacity:1;stroke-width:5.56217766;stroke-miterlimit:4;stroke-dasharray:none">
       <path
          sodipodi:nodetypes="cc"
@@ -2056,7 +2056,7 @@
          id="tspan3227-7">inaccessible</tspan></text>
     <g
        id="g4730-6-9-28-4-7-1-1-8-8-7"
-       transform="matrix(-0.37481994,0,0,-0.38029989,600.75475,-486.13251)"
+       transform="matrix(-0.37481994,0,0,-0.38029989,600.75475,-485.60334)"
        style="fill:#ffffff;fill-opacity:1;stroke-width:5.56217766;stroke-miterlimit:4;stroke-dasharray:none">
       <path
          sodipodi:nodetypes="cc"
@@ -2072,7 +2072,7 @@
     </g>
     <g
        id="g4730-6-9-28-4-7-1-1-8-8-7-5"
-       transform="matrix(0,0.37950344,-0.37560656,0,510.86107,-575.78788)"
+       transform="matrix(0,0.37950344,-0.37560656,0,511.39024,-575.78788)"
        style="fill:#ffffff;fill-opacity:1;stroke-width:5.56217766;stroke-miterlimit:4;stroke-dasharray:none">
       <path
          sodipodi:nodetypes="cc"
