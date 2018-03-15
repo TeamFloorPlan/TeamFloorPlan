@@ -85,10 +85,12 @@ function plotArray(el) {
 
   let buildingNameFromBox = document.getElementById('buildingVal').value;
   let roomNumberFromBox = document.getElementById('room').value;
+  let entranceNumber = document.getElementById('entrance').value;
+  let disabled = document.getElementById('disabled').checked;
   let buildRequest = "?roomID=" + roomNumberFromBox + "&buildingName="+buildingNameFromBox;
   let roomIDFromDatabase = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/Backend.php",buildRequest);
   let [roomIDSplit,floorNumber] = roomIDFromDatabase.split(',');
-  buildRequest = "?pathEntranceID=1&roomIDSelect=" + roomIDSplit + "&floor=" + floorNumber;
+  buildRequest = "?pathEntranceID="+entranceNumber+"&roomIDSelect=" + roomIDSplit + "&floor=" + floorNumber + "&disabled=" + disabled;
   let arrayOfData = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/Backend.php",buildRequest);
   let roomCoords = arrayOfData.split(',').map(Number);
   for (var i=1; i < (roomCoords.length/2)+1; i+=1) {
@@ -100,6 +102,9 @@ function plotArray(el) {
   }
 }
 
+function getFloorNum(roomNumber){
+  return roomNumber.charAt(0);
+}
 
 function changeLT () {
   var navFont = document.getElementById("navArea");
