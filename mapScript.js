@@ -31,6 +31,9 @@ function getBuilding() {
         case "2":
           var build="img/Liongate/liongateLevel2.svg"
           break;
+        case "3":
+          var build="img/Liongate/liongateError.svg"
+          break;
       }
       break;
     /*Gets input of building name from text entry box*/
@@ -41,7 +44,13 @@ function getBuilding() {
           var build="img/Portland/portlandLevel0.svg"
           break;
         case "1":
-          var build="img/Portland/portlandLevel0.svg"
+          var build="img/Portland/portlandLevel1.svg"
+          break;
+        case "2":
+          var build="img/Portland/portlandLevel2.svg"
+          break;
+        case "3":
+          var build="img/Portland/portlandLevel3.svg"
           break;
         }
       break;
@@ -55,6 +64,9 @@ function getBuilding() {
           break;
         case "2":
           var build="img/BuckingHam/BuckingHamLevel2.svg"
+          break;
+        case "3":
+          var build="img/BuckingHam/BuckingHamLevel3.svg"
           break;
         }
         break;

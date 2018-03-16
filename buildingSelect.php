@@ -28,7 +28,7 @@
         <!--User enters building name -->
         <input type="text" name="buildingVal" id="buildingVal" value="liongate"/>
         <!-- User enters floor number -->
-        <input type="number" name="floor" id="floor" value="0" min="0" max="2" onchange="validateFloor()" />
+        <input type="number" name="floor" id="floor" value="0" min="0" max="3" onchange="validateFloor()" />
         <!-- User enters room id -->
         <input type="text" name="roomVal" id="room" value="0.00" onchange="validateRoom()">
 
