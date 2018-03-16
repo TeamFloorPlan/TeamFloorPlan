@@ -21,6 +21,7 @@ function deleteSessionAndRedirect($redirectURL){
 	$location = "Location: ";
 	$location .= $redirectURL; //Concatenate Location wtih file.
 	header($location);
+    exit();
 }
 
 /**
@@ -59,18 +60,19 @@ function signUserUp($conn, $email, $username, $password, $cpassword){
     $check->bindParam(':loginUsername',$username);															  //that the username or email
     $check->bindParam(':loginEmail',$email);																  //haven't been taken already.
     $check->execute();
-    $checkuser = $check->fetchAll();
-    foreach($checkuser as $row)
-    {
+    $rows = $check->fetch(PDO::FETCH_NUM);
+    if($rows > 0){
         deleteSessionAndRedirect("../createAccountForm.php?error=errorUsernameTaken");//If username/email has been taken, redirect.
     }
-
+    
+   
      $result = $conn->prepare("INSERT INTO logindetails (loginUsername, loginPassword, loginEmail) VALUES (:loginUsername, :loginPassword, :loginEmail)"); //Insert into DB
      $result->bindParam(':loginUsername', $username); //Replacing prepared statement vars with username and password
      $result->bindParam(':loginPassword', $password);
      $result->bindParam(':loginEmail', $email);
      $result->execute();
      print_r(error_get_last());
+     //header("location: login.php");
      deleteSessionAndRedirect("../Login.php");
 }
 

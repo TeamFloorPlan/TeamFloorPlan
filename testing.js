@@ -361,6 +361,7 @@ function testingCreateAccount(){
 	}else{
 		outputOutcome(i,0);
 	}
+	i+=1;
 	//Test 5
 	if(testFirstName("#",true)){
 		outputOutcome(i,1);
@@ -388,6 +389,7 @@ function testingCreateAccount(){
 	}else{
 		outputOutcome(i,0);
 	}
+	i+=1;
 	//Test 9
 	if(testSurname("#",true)){
 		outputOutcome(i,1);

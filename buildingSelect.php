@@ -22,12 +22,14 @@
       </nav>
       <?php
       include 'Backend/BackendFunctional.php';
-if(!isset($_SESSION['user']))     //If the user hasn't logged in, it redirects them to the login page
- {
-    header("location: login.php");
-}
-?>
-  </header>
+      if(!isset($_SESSION['user']))     //If the user hasn't logged in, it redirects them to the login page
+      {
+          header("location: login.php");
+      }
+      ?>
+  
+
+        </header>
   <body id="bodyBG" onload="storageRetrieval()">
 
     <section id="pageBG">
@@ -55,7 +57,7 @@ if(!isset($_SESSION['user']))     //If the user hasn't logged in, it redirects t
         <!-- Click button to run displayMap function -->
         <input id="mapBtn" type="button" value="Show Map" onclick="displayMap(window.mapCanvas);" />
         <input id="arrBtn" type="button" value="Show Route" onclick="plotArray(mapCanvas)" />
-        <input id="legacy" type="button" value="ayy" onclick="legacyDraw(window.mapCanvas,testArray);" />
+        
       </form>
       <div>
       <!-- Div where the map will be drawn -->
