@@ -203,3 +203,24 @@ function storageRetrieval() {
     headBG.style.background = "#e9e9e9";
   }
 }
+
+function validateRoom() {
+  var roomStr = document.getElementById('room').value;
+  if(roomStr.match(/[a-z]/i)) {
+    window.alert("Error: Please Enter a Room Number");
+  }
+}
+
+function validateFloor() {
+  var floorStr = document.getElementById('floor').value;
+  if(floorStr.match(/[a-z]/i)) {
+    window.alert("Error: Please Enter a Floor Number");
+  }
+}
+
+function validateEntrance() {
+  var entStr = document.getElementById('entrance').value;
+  if(entStr.match(/[a-z]/i)) {
+    window.alert("Error: Please Enter an Entrance Number");
+  }
+}

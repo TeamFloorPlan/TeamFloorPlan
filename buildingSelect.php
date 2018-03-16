@@ -28,11 +28,11 @@
         <!--User enters building name -->
         <input type="text" name="buildingVal" id="buildingVal" value="liongate"/>
         <!-- User enters floor number -->
-        <input type="number" name="floor" id="floor" value="0" min="0" max="2" />
+        <input type="number" name="floor" id="floor" value="0" min="0" max="2" onchange="validateFloor()" />
         <!-- User enters room id -->
-        <input type="text" name="roomVal" id="room" value="0.00">
+        <input type="text" name="roomVal" id="room" value="0.00" onchange="validateRoom()">
 
-        <input type="text" name="entranceVal" id="entrance" value="1"/>
+        <input type="text" name="entranceVal" id="entrance" value="1" onchange="validateEntrance()"/>
 
 
         <input type="checkbox" name="disabled" id="disabled"/>
