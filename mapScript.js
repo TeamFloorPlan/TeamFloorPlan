@@ -117,14 +117,17 @@ function plotArray(el) {
   let buildRequest = "?roomID=" + roomNumberFromBox + "&buildingName="+buildingNameFromBox;
   let roomIDFromDatabase = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/BackendFunctional.php",buildRequest);
   let [roomIDSplit,floorNumber] = roomIDFromDatabase.split(',');
+  if(entranceNumber == 1 && buildingNameFromBox == "buckingham"){ //Done this horrible hack for compatibility issues.
+    entranceNumber = 3;
+  }
+  if(entranceNumber == 2 && buildingNameFromBox == "buckingham"){
+    entranceNumber = 4;
+  }
   buildRequest = "?pathEntranceID="+entranceNumber+"&roomIDSelect=" + roomIDSplit + "&floor=" + floorNumber + "&disabled=" + disabled;
   let arrayOfData = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/BackendFunctional.php",buildRequest);
   let roomCoords = arrayOfData.split(',').map(Number);
-  if(entranceNumber == 1){ //Done this horrible hack for compatibility issues.
-    entranceNumber = 3;
-  }else{
-    entranceNumber = 4;
-  }
+  
+  console.log(entranceNumber);
   for (var i=1; i < (roomCoords.length/2)+1; i+=1) {
     var c = el.getContext("2d");
     c.beginPath();
@@ -226,23 +229,35 @@ function storageRetrieval() {
 // Checks if room entered is valid in comparision with the building entered
 function validateRoom() {
   var roomStr = document.getElementById('room').value;
-  if(roomStr.match(/[a-z]/i)) {
-    window.alert("Error: Please Enter a Room Number");
+  var buildRequest = "?checkRoom=1&roomName="+roomStr;
+  var requestBack = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/BackendFunctional.php",buildRequest);
+  if(requestBack == "FAILURE"){
+    window.alert("Error: Please Enter an Room Number");
+    document.getElementById('room').value = "0.01";
+    return "FAILURE";
   }
+
 }
 
-// validates floor is correct, valid and not empty and displays error message is it isn't
 function validateFloor() {
   var floorStr = document.getElementById('floor').value;
-  if(floorStr.match(/[a-z]/i)) {
-    window.alert("Error: Please Enter a Floor Number");
+  var buildingID = document.getElementById('buildingVal').value;
+  var buildRequest = "?checkFloor=1&buildingName="+buildingID+"&floorNumber="+floorStr;
+  var requestBack = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/BackendFunctional.php",buildRequest);
+  if(requestBack == "FAILURE" || floorStr == "" || floorStr % 1 != 0) {
+    window.alert("Error: Please Enter a Valid Floor");
+    document.getElementById('floor').value = 1;
+    return "FAILURE";
   }
 }
 
-//validates that the entrance number that they enter is correct and valid via the entrance value stored in the database
 function validateEntrance() {
   var entStr = document.getElementById('entrance').value;
-  if(entStr.match(/[a-z]/i)) {
-    window.alert("Error: Please Enter an Entrance Number");
+  var buildRequest = "?checkEntrance=1&entranceNumber="+entStr;
+  var requestBack = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/BackendFunctional.php",buildRequest);
+  if(requestBack == "FAILURE" || entStr == "" || entStr % 1 != 0) {
+    window.alert("Error: Please Enter a Valid Entrance");
+    document.getElementById('entrance').value = 1;
+    return "FAILURE";
   }
 }

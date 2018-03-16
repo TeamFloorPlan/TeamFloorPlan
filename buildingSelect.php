@@ -41,7 +41,7 @@
 
         <input type="text" name="entranceVal" id="entrance" placeholder="Entrance Number E.g. 1" onchange="validateEntrance()"/>
         <div class="disabled">
-        <input type="checkbox" name="disabled" />
+        <input type="checkbox" name="disabled" id="disabled" />
         <p>Display Disabled Pathing</p>
       </div>
 

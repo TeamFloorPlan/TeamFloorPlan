@@ -190,8 +190,10 @@ function getRoomID($conn,$buildingName,$roomID){
 */
 
 function getPathCoordinates($conn,$roomID,$pathEntranceID,$floorNumb,$disabled){
+
     if($floorNumb == 0) //If ground floor is 0. A path is fetched from the database between a given entrance and room.
     {
+        
         $result = $conn->prepare("SELECT path.pathCoordinates FROM path WHERE path.EntranceID= :pathEntranceID AND path.roomID= :roomID");
         $result->bindParam(':pathEntranceID',$pathEntranceID);
         $result->bindParam(':roomID',$roomID);
@@ -231,6 +233,47 @@ function getPathCoordinates($conn,$roomID,$pathEntranceID,$floorNumb,$disabled){
     }
 }
 
+function checkRoomName($conn,$roomName){
+    $result = $conn->prepare("SELECT roomName FROM room WHERE roomName= :roomName");
+    $result->bindParam(':roomName',$roomName);
+    $result->execute();
+    $rows = $result->fetch(PDO::FETCH_NUM);
+    if ($rows > 0) {
+        echo "SUCCESS";
+    }else{
+        echo "FAILURE";
+    }
+}
+
+function checkEntranceNumber($entranceNumber){
+    if(is_numeric($entranceNumber)){
+        if($entranceNumber <= 2){
+            echo "SUCCESS";
+        }else{
+            echo "FAILURE";
+        }
+    }else{
+        echo "FAILURE";
+    }
+}
+
+function checkFloorValid($conn,$floorNumber,$buildingName){
+    $temp = 1;
+    $result = $conn->prepare("SELECT buildingNumberOfFloors FROM building WHERE buildingName= :buildingName");
+    $result->bindParam(':buildingName', $buildingName);
+    $result->execute();
+    $loop = $result->fetchAll();
+    foreach($loop as $row)
+    {
+            $temp = $row['buildingNumberOfFloors']; //Outputs number of floors a building has.
+    }
+
+    if($floorNumber > $temp){
+        echo "FAILURE";
+    }else{
+        echo "SUCCESS";
+    }
+}
 /*
 /*This block of code decides what functions to call from the data inputted and passes the GET and/or POST requests to their functions.
 */
@@ -283,4 +326,14 @@ if(isset($_POST['Signup'])){ //If user is signing up
     $disabled = $_GET['disabled'];
 
     getPathCoordinates($conn,$roomID,$pathEntranceID,$floorNumb,$disabled);
+}elseif(isset($_GET['checkRoom'])){
+    $roomName = $_GET['roomName'];
+    checkRoomName($conn,$roomName);
+}elseif(isset($_GET['checkEntrance'])){
+    $entranceNumber = $_GET['entranceNumber'];
+    checkEntranceNumber($entranceNumber);
+}elseif(isset($_GET['checkFloor'])){
+    $buildingName = $_GET['buildingName'];
+    $floorNumber = $_GET['floorNumber'];
+    checkFloorValid($conn,$floorNumber,$buildingName);
 }
