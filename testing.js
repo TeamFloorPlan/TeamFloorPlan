@@ -61,7 +61,7 @@ function testRoomName(data,wantChange){
 			return false;
 		}
 	}
-	
+
 }
 
 function setEntranceNumber(entranceNumber){
@@ -258,6 +258,19 @@ function testingLogins(){
 		outputOutcome(i,0);
 	}
 	i+=1;
+	if(testUsername("bbb",true)){
+		outputOutcome(i,1);
+	}else{
+		outputOutcome(i,0)
+	}
+	i+=1;
+	if(testUsername(1,true)){
+		outputOutcome(i,1);
+	}else{
+		outputOutcome(i,0);
+	}
+
+	i+=1;
 	//Test 4
 	if(testUsername("test",false)){
 		outputOutcome(i,1)
@@ -293,6 +306,17 @@ function updateFirstName(){
 	document.getElementById('firstname').onchange();
 }
 
+function setEmail(email){
+	document.getElementById('email').value = email;
+}
+
+function getEmail(){
+	return document.getElementById('email').value;
+}
+
+function updateEmail(){
+	document.getElementById('email').onchange;
+}
 
 function testFirstName(data,wantChange){
 	setFirstName(data);
@@ -312,6 +336,26 @@ function testFirstName(data,wantChange){
 		}
 	}
 }
+
+function testEmail(data,wantChange){
+	setEmail(data);
+	updateEmail();
+	let output = getEmail();
+	if(wantChange){
+		if(data == output){
+			return false;
+		}else{
+			return true;
+		}
+	}else{
+		if(data == output){
+			return true;
+		}else{
+			return false;
+		}
+	}
+}
+
 
 function testSurname(data,wantChange){
 	setsurname(data);
@@ -417,5 +461,30 @@ function testingCreateAccount(){
 	}else{
 		outputOutcome(i,0);
 	}
-}
 
+	i+=1;
+	if(testUsername("bbb",true)){
+		outputOutcome(i,1);
+	}else{
+		outputOutcome(i,0)
+	}
+	i+=1;
+	if(testUsername(1,true)){
+		outputOutcome(i,1);
+	}else{
+		outputOutcome(i,0);
+	}
+	i+=1;
+	if(testEmail("b",true)){
+		outputOutcome(i,1);
+	}else{
+		outputOutcome(i,0);
+	}
+	i+=1;
+	if(testEmail("hi@gmail.com",0)){
+		outputOutcome(i,1);
+	}else{
+		outputOutcome(i,0);
+	}
+
+}

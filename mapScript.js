@@ -126,7 +126,7 @@ function plotArray(el) {
   buildRequest = "?pathEntranceID="+entranceNumber+"&roomIDSelect=" + roomIDSplit + "&floor=" + floorNumber + "&disabled=" + disabled;
   let arrayOfData = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/BackendFunctional.php",buildRequest);
   let roomCoords = arrayOfData.split(',').map(Number);
-  
+
   for (var i=1; i < (roomCoords.length/2)+1; i+=1) {
     var c = el.getContext("2d");
     c.beginPath();
@@ -276,6 +276,10 @@ function validateEntrance() {
     if(checkCleanString(user)){
        document.getElementById('username').value = "";
     }
+    if(user.length < 4){
+      window.alert("Error: Username needs to be at least 4 characters.");
+      document.getElementById('username').value = "";
+    }
    }
 
    function validateFname(){
@@ -291,7 +295,11 @@ function validateEntrance() {
       document.getElementById('surname').value = "";
     }
    }
-  
 
-
-
+   function validateEmail(){
+     var email = document.getElementById('email').value;
+     if(email.search("@") == -1){
+       window.alert("Error: Please enter valid email address.")
+       document.getElementById('email').value = "";
+     }
+   }

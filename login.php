@@ -47,7 +47,7 @@
        </form>
        <br>
 
-       <a href="createAccountForm.php" style="text-decoration:none;">Don't have one? Sign up now</a>
+       <a href="createAccountForm.php" id="signUpLink">Don't have one? Sign up now</a>
        </section>
        </body>
      </html>

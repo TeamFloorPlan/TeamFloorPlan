@@ -44,7 +44,7 @@
          <input type="password" name="cpassword" placeholder="Re-enter Password" class="EmailPass">
 
          <p class="FormTitle">Email Address:</p>
-         <input type="text" name="email" placeholder="Your Email" class="EmailPass">
+         <input type="text" name="email" id="email" placeholder="Your Email" class="EmailPass" onchange="validateEmail();">
          <input type="hidden" name="Signup" value="1">
          <br>
          <?php
