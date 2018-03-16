@@ -106,6 +106,11 @@ function plotArray(el) {
   buildRequest = "?pathEntranceID="+entranceNumber+"&roomIDSelect=" + roomIDSplit + "&floor=" + floorNumber + "&disabled=" + disabled;
   let arrayOfData = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/BackendFunctional.php",buildRequest);
   let roomCoords = arrayOfData.split(',').map(Number);
+  if(entranceNumber == 1){ //Done this horrible hack for compatibility issues.
+    entranceNumber = 3;
+  }else{
+    entranceNumber = 4;
+  }
   for (var i=1; i < (roomCoords.length/2)+1; i+=1) {
     var c = el.getContext("2d");
     c.beginPath();
