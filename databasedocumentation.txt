@@ -1,0 +1,149 @@
+
+
+Database name: database.sql
+
+Stores details of buildings, floors, entrances, stairs, elevators, rooms an paths between them. Stores login details of users
+
+
+
+Table: building
+
+responsible: George Swallow
+
+Description: table holds details of individual buildings 
+
+COLUMN                    | DATA TYPE   | DESCRIPTION
+------------------------------------------------------
+buildingName              | varchar(30) | Primary key for buildings and uniquely identifies them. Foreign key to floor.buildingName
+------------------------------------------------------
+buildingNumberOfEntrances | int(6)      | States the number of entrances that the building has up to the amount stored in the database
+------------------------------------------------------
+buildingNumberOfFloors    | int(6)      | States the number of floors that the building has up to the amount stored in the database
+ 
+
+
+Table: floor
+
+responsible: George Swallow
+
+Description: table identifies the floor name and which floor it belongs to
+
+COLUMN                    | DATA TYPE   | DESCRIPTION                 
+------------------------------------------------------
+floorID                   | int(6)      | Primary key for floors and uniquely identfies them. Foreign key to room.floorID, entrance.floorID, stair.floorID, elevtor.floorID
+------------------------------------------------------
+buildingName              | varchar(30) | links the floors to a building. Foreign key from building.buildingName
+------------------------------------------------------
+floorNumber               | int(6)      | identifies the floor (0, 1, 2 = ground, 1st, 2nd)
+
+
+
+Table: room
+
+responsible: George Swallow
+
+Description: table identifies the room name/number and which floor it is on
+
+COLUMN                    | DATA TYPE   | DESCRIPTION                  
+------------------------------------------------------
+roomID                    | int(6)      | Primary key for rooms and uniquely identfies them. Foreign key to path.roomID
+------------------------------------------------------
+floorID                   | int(6)      | links room to a floor. Foreign key from floor.floorID
+------------------------------------------------------
+roomName                  | varchar(10) | states the name or number of the room
+
+
+
+Table: entrance
+
+responsible: George Swallow
+
+Description: table identifies the entrance, which floor it is on and whether it can accompany for wheelcahair users
+
+COLUMN                    | DATA TYPE   | DESCRIPTION                  
+------------------------------------------------------
+entranceID                | int(6)      | Primary key for entrances and uniquely identfies them. Foreign key to path.entranceID
+------------------------------------------------------
+floorID                   | int(6)      | links entrance to a floor. Foreign key from floor.floorID
+------------------------------------------------------
+entranceDisbled           | tinytint(1) | boolean expression to identify whether the entrance can accompany for wheelchair users. 0 = No, 1 = Yes
+
+
+
+Table: stair
+
+responsible: George Swallow
+
+Description: table holds the range of floors that the stair spans across
+
+COLUMN                    | DATA TYPE   | DESCRIPTION                  
+------------------------------------------------------
+stairID                   | int(6)      | Primary key for stairs and uniquely identfies them. Foreign key to path.stairID
+------------------------------------------------------
+floorID                   | int(6)      | links room to a floor. Foreign key from floor.floorID
+------------------------------------------------------
+stairStartFloor           | int(6)      | states the floor which the stair starts on
+------------------------------------------------------
+stairsEndFloor            | int(6)      | states the floor which the stair ends on                         
+
+
+
+Table: elevator
+
+responsible: George Swallow
+
+Description: table holds the range of floors that the elevator spans across
+
+COLUMN                    | DATA TYPE   | DESCRIPTION                  
+------------------------------------------------------
+elevatorID                | int(6)      | Primary key for elevators and uniquely identfies them. Foreign key to path.elevatorID
+------------------------------------------------------
+floorID                   | int(6)      | links elevator to a floor. Foreign key from floor.floorID
+------------------------------------------------------
+elevatorStartFloor        | int(6)      | states the floor which the elevator starts on
+------------------------------------------------------
+elevatorEndFloor          | int(6)      | states the floor which the elevator ends on  
+
+
+
+Table: path
+
+responsible: George Swallow
+
+Description: table holds the coordinates between two specified IDs (room, entrance, stiar or elevator).
+
+COLUMN                    | DATA TYPE   | DESCRIPTION                  
+------------------------------------------------------
+pathID                    | int(6)      | Primary key for paths and uniquely identfies them
+------------------------------------------------------
+roomID                    | int(6)      | links the path to room. Foreign key from room.roomID. Can be null
+------------------------------------------------------
+entranceID                | int(6)      | links the path to a entrance. Foreign key from entrance.entranceID. Can be null
+------------------------------------------------------
+stairID                   | int(6)      | links the path to a stair. Foreign key from stair.stairID. Can be null
+------------------------------------------------------
+elevatorID                | int(6)      | links the path to an elevator. Foreign key from elevator.elevatorID. Can be null
+------------------------------------------------------
+pathCoordinates           | varchar(256)| holds the coordinates to be used by the backend to plot the path for the user
+
+
+
+Table: logindetails
+
+responsible: George Swallow
+
+Description: table holds
+
+COLUMN                    | DATA TYPE   | DESCRIPTION                  
+------------------------------------------------------
+loginEmail                | varchar(50) | contains the user's login email. Primary key for logindetails and uniquely identifies them
+------------------------------------------------------
+loginPassword             | varchar(64) | contains the user's password, will be encrypted
+------------------------------------------------------
+loginUsername             | varchar(50) | contains the user's username which they will loin with
+------------------------------------------------------
+loginDisabled             | tinytint(1) | Used to identify whether the user wants disabled access paths set to default. 0 = No, 1 = Yes
+------------------------------------------------------
+loginColourBlind          | tinytint(1) | Used to identify whether the user wants colour blind mode set to default. 0 = No, 1 = Yes
+------------------------------------------------------
+loginNeedLargeText        | tinytint(1) | Used to identify whether the user wants large text set to default. 0 = No, 1 = Yes
