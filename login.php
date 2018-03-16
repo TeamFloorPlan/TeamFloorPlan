@@ -5,18 +5,19 @@
     <title>Login</title>
     <link rel="icon" href="img/UOPLogos/UOPLogoSmall.PNG">
     <link rel="stylesheet" href="style/stylesheet.css">
+    <script src="mapScript.js"></script>
   </head>
-  <header>
+  <header id="headBG">
     <a href="index.php"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.PNG"
      alt="Logo"></a>
     <h1>Login</h1>
-      <nav>
+      <nav id="navArea">
         <a id="current_page">Login</a> |
         <a href="index.php" aria-label="Navigate to the start page">Home</a> |
       </nav>
   </header>
-  <body>
-    <section>
+  <body id="bodyBG" onload="storageRetrieval()">
+    <section id="pageBG">
     <form action="/TeamFloorPlan/Backend/BackendFunctional.php" method="post">
       <br>
       <fieldset id="fieldsetid">
@@ -37,14 +38,14 @@
           {
             echo "Please enter a valid username and password";
           }
-          
+
          ?>
          <input type="hidden" name="Login" value="1">
        </fieldset>
        <button type="submit" class ="signupbtn"> Sign in</button>
        </form>
        <br>
-       
+
        <a href="createAccountForm.php" style="text-decoration:none;">Don't have one? Sign up now</a>
        </section>
        </body>
