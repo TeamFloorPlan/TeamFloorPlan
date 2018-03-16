@@ -177,6 +177,20 @@ button:hover {
   width: 40%;
 }
 
+.disabled{
+  padding-left: 500px;
+  padding-top: 5px;
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 100%;
+
+  overflow: auto;
+}
+
+
+#UserEnterForm{
+  position: absolute;
+}
+
 #homeBanner {
   position: absolute;
   left: 0;

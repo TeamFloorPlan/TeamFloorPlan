@@ -63,6 +63,7 @@ function getBuilding() {
   return build;
 }
 
+
 var testArray = [542,522,542,492];
 
 function arrayToFirstCoords(roomCoords, coordPoint) {
@@ -94,6 +95,7 @@ function httpGet(urlToGet,getParams)
 
 }
 
+// function uses building values and id that user has selected to display the map which is linked to the backend
 function plotArray(el) {
 
   let buildingNameFromBox = document.getElementById('buildingVal').value;
@@ -209,6 +211,7 @@ function storageRetrieval() {
   }
 }
 
+// Checks if room entered is valid in comparision with the building entered
 function validateRoom() {
   var roomStr = document.getElementById('room').value;
   if(roomStr.match(/[a-z]/i)) {
@@ -216,6 +219,7 @@ function validateRoom() {
   }
 }
 
+// validates floor is correct, valid and not empty and displays error message is it isn't
 function validateFloor() {
   var floorStr = document.getElementById('floor').value;
   if(floorStr.match(/[a-z]/i)) {
@@ -223,6 +227,7 @@ function validateFloor() {
   }
 }
 
+//validates that the entrance number that they enter is correct and valid via the entrance value stored in the database
 function validateEntrance() {
   var entStr = document.getElementById('entrance').value;
   if(entStr.match(/[a-z]/i)) {

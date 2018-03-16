@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style/stylesheet.css">
     <script src="mapScript.js"></script>
   </head>
+  <!-- heading links back to homepage and links in nav bar directs user to the correct pages -->
   <header id="headBG">
     <a href="index.php"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.PNG"
      alt="Logo"></a>
@@ -24,23 +25,32 @@
 
     <section id="pageBG">
       <!--Form contains options for selecting building*/-->
+      <div id="UserEnterForm">
       <form>
         <!--User enters building name -->
-        <input type="text" name="buildingVal" id="buildingVal" value="liongate"/>
+        <select id="buildingVal">
+          <option   value="buckingham">Buckingham</option>
+          <option   value="liongate">Liongate</option>
+
+        </select>
+           <!-- type="text" name="buildingVal" id="buildingVal" value="liongate"/> -->
         <!-- User enters floor number -->
         <input type="number" name="floor" id="floor" value="0" min="0" max="2" onchange="validateFloor()" />
         <!-- User enters room id -->
-        <input type="text" name="roomVal" id="room" value="0.00" onchange="validateRoom()">
+        <input type="text" name="roomVal" id="room" placeholder="Room Number E.g. 0.14" onchange="validateRoom()">
 
-        <input type="text" name="entranceVal" id="entrance" value="1" onchange="validateEntrance()"/>
+        <input type="text" name="entranceVal" id="entrance" placeholder="Entrance Number E.g. 1" onchange="validateEntrance()"/>
+        <div class="disabled">
+        <input type="checkbox" name="disabled" />
+        <p>Display Disabled Pathing</p>
+      </div>
 
-
-        <input type="checkbox" name="disabled" id="disabled"/>
         <!-- Click button to run displayMap function -->
         <input id="mapBtn" type="button" value="Show Map" onclick="displayMap(window.mapCanvas);" />
-        <input id="arrBtn" type="button" value="Plot Array" onclick="plotArray(mapCanvas)" />
+        <input id="arrBtn" type="button" value="Show Route" onclick="plotArray(mapCanvas)" />
         <input id="legacy" type="button" value="ayy" onclick="legacyDraw(window.mapCanvas,testArray);" />
       </form>
+      <div>
       <!-- Div where the map will be drawn -->
       <div id="mapDiv">
         <canvas id="mapCanvas" width="700" height="563"></canvas>
