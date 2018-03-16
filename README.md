@@ -38,4 +38,19 @@ The code below all these functions will decide what functions will be called. Th
 | GET          | roomID          | buildingName (compulsory) roomID (compulsory)                                                  | getRoomID          |
 | GET          | pathEntranceID  | roomIDSelect (compulsory) pathEntranceID (compulsory) floor (compulsory) disabled (compulsory) | getPathCoordinates |
 
+# Installation Instructions #
+Instruction on how to use our system
 
+1)Install Wamp (web server that can run php)
+
+2)git clone teamfloorplan into "www" folder in wamp
+
+3)Go to "127.0.0.1/phpmyadmin" in the browser
+
+4) enter "root" as the username in phpmyadmin, password is not required, (if you do have a password, change in backend.php)
+
+4)create new database on the main page on the left and call it "insefinal"
+
+5)click on the created "insefinal" and import the database.sql file.
+
+6)go to "127.0.0.1/teamfloorplan" in the browser to use system.
