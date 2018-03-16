@@ -176,6 +176,7 @@ function getRoomID($conn,$buildingName,$roomID){
         echo $row['roomID']; //Returns the room ID and what floor it is on seperated by a comma.
         echo ",";
         echo $getFloor;
+        break;
     }
 }
 
@@ -219,7 +220,7 @@ function getPathCoordinates($conn,$roomID,$pathEntranceID,$floorNumb,$disabled){
 
             }
         }else{
-            $result = $conn->prepare("SELECT path.pathCoordinates FROM path WHERE path.stairID= :elevatorID AND path.roomID= :roomID"); //If person is disabled, draw from elevator
+            $result = $conn->prepare("SELECT path.pathCoordinates FROM path WHERE path.elevatorID= :elevatorID AND path.roomID= :roomID"); //If person is disabled, draw from elevator
             $result->bindParam(':elevatorID',$stairID);
             $result->bindParam(':roomID',$roomID);
             $result->execute();

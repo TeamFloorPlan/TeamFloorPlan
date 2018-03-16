@@ -7,6 +7,7 @@
     <link rel="icon" href="img/UOPLogos/UOPLogoSmall.PNG">
     <link rel="stylesheet" href="style/stylesheet.css">
     <script src="mapScript.js"></script>
+    <script src="testing.js"></script>
   </head>
   <!-- heading links back to homepage and links in nav bar directs user to the correct pages -->
   <header id="headBG">
@@ -19,7 +20,13 @@
         <a href="settings.php" aria-label="Navigate to the settings page">Settings</a> |
         <a id="logout" href="logout.php" aria-label="Logout from your account">Logout</a>
       </nav>
-
+      <?php
+      include 'Backend/BackendFunctional.php';
+if(!isset($_SESSION['user']))     //If the user hasn't logged in, it redirects them to the login page
+ {
+    header("location: login.php");
+}
+?>
   </header>
   <body id="bodyBG" onload="storageRetrieval()">
 

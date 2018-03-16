@@ -6,6 +6,7 @@
     <link rel="icon" href="img/UOPLogos/UOPLogoSmall.PNG">
     <link rel="stylesheet" href="style/stylesheet.css">
     <script src="mapScript.js"></script>
+    <script src="testing.js"></script>
   </head>
   <header id="headBG">
     <a href="index.php"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.PNG"
@@ -23,7 +24,7 @@
       <fieldset id="fieldsetid">
         <legend id="legendid">Login</legend>
          <!-- <p class="FormTitle">Username:</p> -->
-         <input type="text" name="username" placeholder="Username"   class="EmailPass">
+         <input type="text" name="username" placeholder="Username" class="EmailPass" id="username" onchange="validateUsername();" />
 
          <!-- <p class="FormTitle">Password:</p> -->
          <input type="password" name="password" placeholder="Password"  class="EmailPass">

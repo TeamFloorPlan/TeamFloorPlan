@@ -127,7 +127,6 @@ function plotArray(el) {
   let arrayOfData = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/BackendFunctional.php",buildRequest);
   let roomCoords = arrayOfData.split(',').map(Number);
   
-  console.log(entranceNumber);
   for (var i=1; i < (roomCoords.length/2)+1; i+=1) {
     var c = el.getContext("2d");
     c.beginPath();
@@ -244,7 +243,7 @@ function validateFloor() {
   var buildingID = document.getElementById('buildingVal').value;
   var buildRequest = "?checkFloor=1&buildingName="+buildingID+"&floorNumber="+floorStr;
   var requestBack = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/BackendFunctional.php",buildRequest);
-  if(requestBack == "FAILURE" || floorStr == "" || floorStr % 1 != 0) {
+  if(requestBack == "FAILURE" || floorStr == "" || floorStr % 1 != 0 || floorStr < 0) {
     window.alert("Error: Please Enter a Valid Floor");
     document.getElementById('floor').value = 1;
     return "FAILURE";
@@ -255,9 +254,44 @@ function validateEntrance() {
   var entStr = document.getElementById('entrance').value;
   var buildRequest = "?checkEntrance=1&entranceNumber="+entStr;
   var requestBack = httpGet("http://127.0.0.1/TeamFloorPlan/Backend/BackendFunctional.php",buildRequest);
-  if(requestBack == "FAILURE" || entStr == "" || entStr % 1 != 0) {
+  if(requestBack == "FAILURE" || entStr == "" || entStr % 1 != 0 || entStr < 0) {
     window.alert("Error: Please Enter a Valid Entrance");
     document.getElementById('entrance').value = 1;
     return "FAILURE";
   }
 }
+
+  function checkCleanString(arg){
+      var expressionToSearch = new RegExp("[^a-z|^A-Z]");
+      if(expressionToSearch.test(arg)){
+        window.alert("Error: Please Enter a Valid Username");
+        return true;
+      }
+      return false;
+  }
+
+
+  function validateUsername(){
+    var user = document.getElementById('username').value;
+    if(checkCleanString(user)){
+       document.getElementById('username').value = "";
+    }
+   }
+
+   function validateFname(){
+    var fname = document.getElementById('firstname').value;
+    if(checkCleanString(fname)){
+      document.getElementById('firstname').value = "";
+    }
+   }
+
+   function validateSname(){
+    var sname = document.getElementById('surname').value;
+    if(checkCleanString(sname)){
+      document.getElementById('surname').value = "";
+    }
+   }
+  
+
+
+

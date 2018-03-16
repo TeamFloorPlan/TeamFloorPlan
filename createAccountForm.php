@@ -5,6 +5,8 @@
     <title>Create An Account</title>
     <link rel="icon" href="img/UOPLogos/UOPLogoSmall.PNG">
     <link rel="stylesheet" href="style/stylesheet.css">
+    <script src="mapScript.js"></script>
+    <script src="testing.js"></script>
   </head>
   <header>
     <a href="index.html"><img id="logo" src="img/UOPLogos/roomFinderUOPLogo.PNG"
@@ -23,15 +25,15 @@
        <fieldset id="fieldsetid">
          <legend id="legendid">Personal information:</legend>
          <p class="FormTitle">Name:</p>
-         <input type="text" name="FirstName" placeholder="First Name"   class="Name">
+         <input type="text" name="FirstName" placeholder="First Name"  id="firstname" class="Name" onchange="validateFname();" />
 
 
          <!-- <p class="FormTitle">Surname:</p> -->
-         <input type="text" name="Surname" placeholder="Last Name"  class="Name">
+         <input type="text" name="Surname" placeholder="Last Name"  id="surname" class="Name" onchange="validateSname();">
       </fieldset>
 
          <p class="FormTitle">Username:</p>
-         <input type="text" name ="username" placeholder="Unique Username" class="EmailPass">
+         <input type="text" name ="username" id="username" placeholder="Unique Username" class="EmailPass" onchange="validateUsername();" />
 
          <p class="FormTitle">Password:</p>
          <input type="password" name="password" placeholder="Password"  class="EmailPass">
